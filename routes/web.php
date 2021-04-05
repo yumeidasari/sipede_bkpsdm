@@ -15,3 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/opd','OpdController');
+Route::resource('/jabatan', 'JabatanController');
+Route::resource('/golongan', 'GolonganController');
+Route::resource('/pegawai', 'PegawaiController');
