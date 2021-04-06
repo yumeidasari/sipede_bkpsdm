@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('golongan/create');
 });
 Route::resource('/opd','OpdController');
 Route::resource('/jabatan', 'JabatanController');
 Route::resource('/golongan', 'GolonganController');
 Route::resource('/pegawai', 'PegawaiController');
+Route::resource('/surattugas', 'SuratTugasController');

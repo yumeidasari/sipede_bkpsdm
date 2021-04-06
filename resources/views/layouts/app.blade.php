@@ -72,6 +72,9 @@
 							<li class="nav-item">
                                 <a class="nav-link" href="{{ url('golongan') }}">{{ __('Golongan') }}</a>
                             </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('surattugas') }}">{{ __('Surat Tugas') }}</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

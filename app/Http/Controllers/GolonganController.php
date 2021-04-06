@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Golongan;
 
 class GolonganController extends Controller
 {
@@ -14,6 +15,8 @@ class GolonganController extends Controller
     public function index()
     {
         //
+		$semua_golongan=Golongan::orderBy('id','DESC')->paginate(10);
+        return view('golongan/index',compact('semua_golongan'));
     }
 
     /**
@@ -24,6 +27,7 @@ class GolonganController extends Controller
     public function create()
     {
         //
+		return view('golongan/create');
     }
 
     /**
@@ -35,6 +39,12 @@ class GolonganController extends Controller
     public function store(Request $request)
     {
         //
+		$golongan_baru = new Golongan;
+        $golongan_baru->golongan = $request->golongan;
+   
+        $golongan_baru->save();
+    
+        return redirect()->to('/golongan/create')->with('message', 'Berhasil menambahkan data golongan');
     }
 
     /**

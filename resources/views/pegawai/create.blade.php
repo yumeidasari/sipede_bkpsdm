@@ -20,18 +20,38 @@
                 </div>
             @endif
 
-            <form action="{{url('/opd')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/pegawai')}}" method="POST" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label> Kode OPD </label>
-                    <input type="text" class="form-control" name="kode" />
+                    <label for="">Nama Pegawai</label>
+                    <input type="text" name="nama_pegawai" class="form-control">
                 </div>
-
-                <div class="form-group">
-                    <label for="">Nama OPD</label>
-                    <input type="text" name="nama_opd" class="form-control">
+				
+				<div class="form-group">
+                    <label for="">NIP</label>
+                    <input type="text" name="nip" class="form-control">
+                </div>
+				
+				<div class="form-group">
+                    <label>Jabatan</label>
+                    <select name="jabatan_id" class="form-control">
+                        <option value="">Pilih Jabatan</option>
+                        @foreach($jabatan as $j)
+                            <option value="{{$j->id}}"> {{$j->jabatan}} </option>
+                        @endforeach
+                    </select>
+                </div>
+				
+				<div class="form-group">
+                    <label>Golongan</label>
+                    <select name="golongan_id" class="form-control">
+                        <option value="">Pilih Golongan</option>
+                        @foreach($golongan as $g)
+                            <option value="{{$g->id}}"> {{$g->golongan}} </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">

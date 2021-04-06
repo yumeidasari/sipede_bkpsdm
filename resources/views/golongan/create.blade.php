@@ -20,18 +20,13 @@
                 </div>
             @endif
 
-            <form action="{{url('/opd')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/golongan')}}" method="POST" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label> Kode OPD </label>
-                    <input type="text" class="form-control" name="kode" />
-                </div>
-
-                <div class="form-group">
-                    <label for="">Nama OPD</label>
-                    <input type="text" name="nama_opd" class="form-control">
+                    <label for="">Golongan</label>
+                    <input type="text" name="golongan" class="form-control">
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SuratTugas;
 use App\Pegawai;
-use App\Jabatan;
-use App\Golongan;
+use Carbon\Carbon;
 
-class PegawaiController extends Controller
+class SuratTugasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class PegawaiController extends Controller
     public function index()
     {
         //
-		$jabatan = Jabatan::all();
-        $golongan = Golongan::all();
-		$semua_pegawai=Pegawai::orderBy('id','DESC')->paginate(10);
-        return view('pegawai/index',compact('semua_pegawai','jabatan','golongan'));
+		$pegawai = Pegawai::all();
+		$semua_surattugas = SuratTugas::orderBy('id','DESC')->paginate(10);
+        return view('surattugas/index',compact('semua_surattugas','pegawai'));
+		
     }
 
     /**
@@ -31,10 +31,10 @@ class PegawaiController extends Controller
     public function create()
     {
         //
-		$jabatan = Jabatan::all();
-        $golongan = Golongan::all();
+		
+        $pegawai = Pegawai::all();
 
-        return view('pegawai/create', compact('jabatan','golongan'));
+        return view('surattugas/create', compact('pegawai'));
     }
 
     /**
@@ -46,15 +46,21 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         //
-		$pegawai_baru = new Pegawai;
-        $pegawai_baru->nama_pegawai = $request->nama_pegawai;
-        $pegawai_baru->nip = $request->nip;
-        $pegawai_baru->jabatan_id = $request->jabatan_id;
-        $pegawai_baru->golongan_id = $request->golongan_id;
+		$st_baru = new SuratTugas;
+        $st_baru->st_nomor = $request->st_nomor;
+        $st_baru->st_dasar_penugasan = $request->st_dasar_penugasan;
+        $st_baru->st_pegawai_id_tujuan = $request->st_pegawai_id_tujuan;
+        $st_baru->st_alasan_penugasan = $request->st_alasan_penugasan;
+		$st_baru->st_lama_tugas = $request->st_lama_tugas;
+		$st_baru->st_tgl_awal = Carbon::create($request->st_tgl_awal);
+		$st_baru->st_tgl_akhir = Carbon::create($request->st_tgl_akhir);
+		$st_baru->st_tempat_penetapan =$request->st_tempat_penetapan;
+		$st_baru->st_tgl_penetapan = Carbon::create($request->st_tgl_penetapan);
+		$st_baru->st_penanda_tangan_id = $request->st_penanda_tangan_id;
 		
-		$pegawai_baru->save();
+		$st_baru->save();
     
-        return redirect()->to('/pegawai/create')->with('message', 'Berhasil menambahkan data pegawai');
+        return redirect()->to('/surattugas/create')->with('message', 'Berhasil menambahkan data Surat Tugas');
     }
 
     /**
