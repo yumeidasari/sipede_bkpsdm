@@ -60,6 +60,21 @@
                                 </li>
                             @endif
                             @endauth
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('opd') }}">{{ __('Opd') }}</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('pegawai') }}">{{ __('Pegawai') }}</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('jabatan') }}">{{ __('Jabatan') }}</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('golongan') }}">{{ __('Golongan') }}</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('surattugas') }}">{{ __('Surat Tugas') }}</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
