@@ -60,22 +60,40 @@
                                 </li>
                             @endif
                             @endauth
-							<li class="nav-item">
-                                <a class="nav-link" href="{{ url('opd') }}">{{ __('Opd') }}</a>
-                            </li>
-							<li class="nav-item">
-                                <a class="nav-link" href="{{ url('pegawai') }}">{{ __('Pegawai') }}</a>
-                            </li>
-							<li class="nav-item">
-                                <a class="nav-link" href="{{ url('jabatan') }}">{{ __('Jabatan') }}</a>
-                            </li>
-							<li class="nav-item">
-                                <a class="nav-link" href="{{ url('golongan') }}">{{ __('Golongan') }}</a>
-                            </li>
+							<li class="nav-item dropdown">
+								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Master <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('opd') }}">
+                                        {{ __('Opd') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ url('pegawai') }}">
+                                        {{ __('Pegawai') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ url('jabatan') }}">
+                                        {{ __('Jabatan') }}
+                                    </a>
+									<a class="dropdown-item" href="{{ url('golongan') }}">
+                                        {{ __('Golongan') }}
+                                    </a>
+
+                                </div>
+                                
+							</li>
+							
+							
 							<li class="nav-item">
                                 <a class="nav-link" href="{{ url('surattugas') }}">{{ __('Surat Tugas') }}</a>
                             </li>
-                    </ul>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('notadinas') }}">{{ __('Nota Dinas') }}</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="{{ url('spd') }}">{{ __('SPD') }}</a>
+                            </li>
+					</ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

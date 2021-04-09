@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 05:42 AM
+-- Generation Time: Apr 09, 2021 at 03:31 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -70,7 +70,6 @@ CREATE TABLE `ms_jabatan` (
 --
 
 
-
 -- --------------------------------------------------------
 
 --
@@ -88,7 +87,6 @@ CREATE TABLE `ms_opd` (
 --
 -- Dumping data for table `ms_opd`
 --
-
 
 
 -- --------------------------------------------------------
@@ -109,6 +107,63 @@ CREATE TABLE `ms_pegawai` (
 
 --
 -- Dumping data for table `ms_pegawai`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nota_dinas`
+--
+
+CREATE TABLE `nota_dinas` (
+  `id` int(11) NOT NULL,
+  `nd_kepada` varchar(255) NOT NULL,
+  `nd_dari` varchar(255) NOT NULL,
+  `nd_tgl_nodin` datetime NOT NULL,
+  `nd_nomor` varchar(255) NOT NULL,
+  `nd_lampiran` varchar(255) NOT NULL,
+  `nd_perihal` text NOT NULL,
+  `nd_kalimat_pembuka` text NOT NULL,
+  `nd_pegawai_id` int(11) NOT NULL,
+  `nd_kalimat_penutup` text NOT NULL,
+  `nd_penanda_tangan_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nota_dinas`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_perjalanan_dinas`
+--
+
+CREATE TABLE `surat_perjalanan_dinas` (
+  `id` int(11) NOT NULL,
+  `spd_opd_id` int(11) NOT NULL,
+  `spd_lembar_ke` varchar(255) NOT NULL,
+  `spd_kode` varchar(255) NOT NULL,
+  `spd_nomor` varchar(255) NOT NULL,
+  `spd_ppk_id` int(11) NOT NULL,
+  `spd_pegawai_id` int(11) NOT NULL,
+  `spd_maksud` varchar(255) NOT NULL,
+  `spd_alat_angkut` varchar(255) NOT NULL,
+  `spd_tempat_berangkat` varchar(255) NOT NULL,
+  `spd_tempat_tujuan` varchar(255) NOT NULL,
+  `spd_surattugas_id` int(11) NOT NULL,
+  `spd_anggaran_id` int(11) NOT NULL,
+  `spd_ket` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `surat_perjalanan_dinas`
 --
 
 
@@ -191,6 +246,18 @@ ALTER TABLE `ms_pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `nota_dinas`
+--
+ALTER TABLE `nota_dinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `surat_perjalanan_dinas`
+--
+ALTER TABLE `surat_perjalanan_dinas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
@@ -234,6 +301,18 @@ ALTER TABLE `ms_opd`
 -- AUTO_INCREMENT for table `ms_pegawai`
 --
 ALTER TABLE `ms_pegawai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `nota_dinas`
+--
+ALTER TABLE `nota_dinas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `surat_perjalanan_dinas`
+--
+ALTER TABLE `surat_perjalanan_dinas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

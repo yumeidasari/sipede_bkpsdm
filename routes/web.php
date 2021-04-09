@@ -14,8 +14,13 @@
 Route::get('/', function () {
     return view('golongan/create');
 });
+
+Route::get('/notadinas/{id}/nodin_pdf', 'NotaDinasController@nodin_pdf');
+
 Route::resource('/opd','OpdController');
 Route::resource('/jabatan', 'JabatanController');
 Route::resource('/golongan', 'GolonganController');
 Route::resource('/pegawai', 'PegawaiController');
 Route::resource('/surattugas', 'SuratTugasController');
+Route::resource('/notadinas', 'NotaDinasController');
+Route::resource('/spd', 'SPDController');
