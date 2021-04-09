@@ -1,9 +1,12 @@
-@extends('layouts.app')
+@extends('adminltelayouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-3">
         <div class="col-md-6 offset-md-3">
 
+			<h3><center>Buat Data Golongan Baru</center></h3>
+                    <hr>
+                    <br>
             @if(Session::has('message'))
                 <div class="alert alert-success">
                     {{ Session::get('message')}}
