@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pegawai;
-use Carbon\Carbon;
-use App\SuratPerjalananDinas;
+use App\NotaDinas;
 use App\SuratTugas;
-use App\Opd;
+use App\SuratPerjalananDinas;
 
-class SPDController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,13 @@ class SPDController extends Controller
     public function index()
     {
         //
-		$pegawai = Pegawai::all();
-		$semua_spd = SuratPerjalananDinas::orderBy('id','DESC')->paginate(10);
-        return view('spd/index',compact('semua_spd','pegawai'));
+		$jml_pegawai = count(Pegawai::All());
+        $jml_nodin = count(NotaDinas::All());
+        $jml_surattugas = count(SuratTugas::All());
+		$jml_spd = count(SuratPerjalananDinas::All());
+		
+        
+        return view('dashboard', compact('jml_pegawai', 'jml_nodin', 'jml_surattugas', 'jml_spd'));
     }
 
     /**
@@ -32,10 +35,6 @@ class SPDController extends Controller
     public function create()
     {
         //
-		$pegawai = Pegawai::all();
-		$opd = Opd::all();
-		$surattugas = SuratTugas::all();
-        return view('spd/create', compact('pegawai','opd','surattugas'));
     }
 
     /**
@@ -47,25 +46,6 @@ class SPDController extends Controller
     public function store(Request $request)
     {
         //
-		$spd_baru = new SuratPerjalananDinas;
-        $spd_baru->spd_opd_id = $request->spd_opd_id;
-        $spd_baru->spd_lembar_ke = $request->spd_lembar_ke;
-		$spd_baru->spd_kode = $request->spd_kode;
-		$spd_baru->spd_nomor = $request->spd_nomor;
-		$spd_baru->spd_ppk_id = $request->spd_ppk_id;
-		$spd_baru->spd_pegawai_id = $request->spd_pegawai_id;
-		$spd_baru->spd_maksud = $request->spd_maksud;
-		$spd_baru->spd_alat_angkut = $request->spd_alat_angkut;
-		$spd_baru->spd_tempat_berangkat = $request->spd_tempat_berangkat;
-		$spd_baru->spd_tempat_tujuan = $request->spd_tempat_tujuan;
-		$spd_baru->spd_surattugas_id = $request->spd_surattugas_id;
-		$spd_baru->spd_anggaran_id = $request->spd_anggaran_id;
-		$spd_baru->spd_ket = $request->spd_ket;
-       
-		$spd_baru->save();
-    
-        //return redirect()->to('/spd/create')->with('message', 'Berhasil menambahkan data Surat Perjalanan Dinas');
-		return redirect()->to('/spd/index')->with('message', 'Berhasil menambahkan data Surat Perjalanan Dinas');
     }
 
     /**

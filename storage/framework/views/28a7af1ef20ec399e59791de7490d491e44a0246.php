@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container pt-5">
-        <h4>Daftar Golongan</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR GOLONGAN</b></h4>
+		<hr>
         <a href="<?php echo e(url('/golongan/create')); ?>" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -21,7 +21,7 @@
                     <td> <?php echo e($golongan->golongan); ?> </td>
                     <td>
                         <a href="<?php echo e(url("/golongan/$golongan->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>
-                        <a href="<?php echo e(url("/golongan/$golongan->id")); ?>" class="btn btn-info btn-sm">view </a>
+                        
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -32,6 +32,7 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/golongan/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('adminltelayouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/golongan/index.blade.php ENDPATH**/ ?>

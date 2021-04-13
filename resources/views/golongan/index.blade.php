@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container pt-5">
-        <h4>Daftar Golongan</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR GOLONGAN</b></h4>
+		<hr>
         <a href="{{url('/golongan/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -24,7 +24,7 @@
                     <td> {{$golongan->golongan}} </td>
                     <td>
                         <a href="{{url("/golongan/$golongan->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        <a href="{{url("/golongan/$golongan->id")}}" class="btn btn-info btn-sm">view </a>
+                        
                     </td>
                 </tr>
                 @endforeach
@@ -35,5 +35,6 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 @endsection

@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('golongan/create');
+    return view('welcome');
 });
 
 Route::get('/notadinas/{id}/nodin_pdf', 'NotaDinasController@nodin_pdf');
+Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
+Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
+Route::get('/spd/{id}/create', 'SuratTugasController@buat_spd');
 
 Route::resource('/opd','OpdController');
 Route::resource('/jabatan', 'JabatanController');
@@ -24,3 +27,6 @@ Route::resource('/pegawai', 'PegawaiController');
 Route::resource('/surattugas', 'SuratTugasController');
 Route::resource('/notadinas', 'NotaDinasController');
 Route::resource('/spd', 'SPDController');
+Route::resource('/pangkat', 'PangkatController');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

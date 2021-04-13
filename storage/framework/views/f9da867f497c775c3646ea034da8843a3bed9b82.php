@@ -26,6 +26,10 @@
                 <?php echo e(csrf_field()); ?>
 
 
+				<div class="form-group">
+                    <input type="text"  name="spd_surattugas_id" value="<?php echo e($surattugas->id); ?>" class="form-control" hidden>
+                </div>
+				
                 <div class="form-group">
                     <label>SKPD/Unit Kerja</label>
                     <select name="spd_opd_id" class="form-control">
@@ -90,17 +94,7 @@
                     <label for="">Tempat Tujuan </label>
                     <input type="text" name="spd_tempat_tujuan" class="form-control">
                 </div>
-																
-				<div class="form-group">
-                    <label>Surat Tugas</label>
-                    <select name="spd_surattugas_id" class="form-control">
-                        <option value="">Pilih Surat Tugas</option>
-                        <?php $__currentLoopData = $surattugas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $st): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($st->id); ?>"> <?php echo e($st->st_nomor); ?> - <?php echo e($st->pegawai->nama_pegawai); ?>  </option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                </div>
-				
+			
 				<div class="form-group">
                     <label for="">Data Anggaran Pengeluaran </label>
                     <input type="text" name="spd_anggaran_id" class="form-control">

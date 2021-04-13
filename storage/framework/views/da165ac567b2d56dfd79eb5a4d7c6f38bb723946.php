@@ -1,7 +1,9 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container pt-3">
         <div class="col-md-6 offset-md-3">
-
+			<h3><center>Buat Data Jabatan Baru</center></h3>
+                    <hr>
+                    <br>
             <?php if(Session::has('message')): ?>
                 <div class="alert alert-success">
                     <?php echo e(Session::get('message')); ?>

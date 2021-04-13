@@ -5,7 +5,7 @@
       
       <img src="<?php echo e(asset('/storage/img/logo-beltim.png')); ?>" alt="Sipede Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">SIPEDE</span>
+      <span class="brand-text font-weight-light"><b>SIPEDE</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -19,7 +19,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="<?php echo e(url('dashboard')); ?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -62,6 +62,13 @@
                 <a href="<?php echo e(url('golongan')); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Golongan</p>
+                </a>
+              </li>
+			  
+			  <li class="nav-item">
+                <a href="<?php echo e(url('pangkat')); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pangkat</p>
                 </a>
               </li>
            

@@ -2,12 +2,11 @@
 
 
 @section('content')
-    <div class="container pt-5">
-        <h4>Daftar Surat Perjalanan Dinas</h4>
+    <div class="container pt-4">
+        <h4><b>DAFTAR SURAT PERJALANAN DINAS</b></h4>
 
-        <a href="{{url('/spd/create')}}" class="btn btn-primary"> Tambah </a>
-        <br/>
-        <br/>
+        <!-- <a href="{{url('/spd/create')}}" class="btn btn-primary"> Tambah </a> -->
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -29,8 +28,9 @@
 					<td> {{$spd->pegawai->nip}} </td>
 					<td> {{$spd->pegawai->nama_pegawai}} </td>
 					<td>
-                        <a href="{{url("/spd/$spd->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        <a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm">view </a>
+                        <!-- <a href="{{url("/spd/$spd->id/edit")}}" class="btn btn-info btn-sm">edit </a> -->
+                        <!-- <a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm">view </a> -->
+						<a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
                     </td>
                 </tr>
                 @endforeach
@@ -41,5 +41,6 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 @endsection

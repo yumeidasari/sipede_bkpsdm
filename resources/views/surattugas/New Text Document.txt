@@ -1,0 +1,9 @@
+<!--	<div class="form-group">
+                    <label>Surat Tugas</label>
+                    <select name="spd_surattugas_id" class="form-control">
+                        <option value="">Pilih Surat Tugas</option>
+                        @foreach($surattugas as $st)
+                            <option value="{{$st->id}}"> {{$st->st_nomor}} - {{$st->pegawai->nama_pegawai}}  </option>
+                        @endforeach
+                    </select>
+                </div> -->

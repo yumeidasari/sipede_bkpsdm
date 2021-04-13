@@ -26,6 +26,10 @@
 
                 {{ csrf_field() }}
 
+				<div class="form-group">
+                    <input type="text"  name="spd_surattugas_id" value="{{$surattugas->id}}" class="form-control" hidden>
+                </div>
+				
                 <div class="form-group">
                     <label>SKPD/Unit Kerja</label>
                     <select name="spd_opd_id" class="form-control">
@@ -90,17 +94,7 @@
                     <label for="">Tempat Tujuan </label>
                     <input type="text" name="spd_tempat_tujuan" class="form-control">
                 </div>
-																
-				<div class="form-group">
-                    <label>Surat Tugas</label>
-                    <select name="spd_surattugas_id" class="form-control">
-                        <option value="">Pilih Surat Tugas</option>
-                        @foreach($surattugas as $st)
-                            <option value="{{$st->id}}"> {{$st->st_nomor}} - {{$st->pegawai->nama_pegawai}}  </option>
-                        @endforeach
-                    </select>
-                </div>
-				
+			
 				<div class="form-group">
                     <label for="">Data Anggaran Pengeluaran </label>
                     <input type="text" name="spd_anggaran_id" class="form-control">
