@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container pt-5">
-        <h4>Daftar Nota Dinas</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR NOTA DINAS</b></h4>
+		<hr>
         <a href="<?php echo e(url('/notadinas/create')); ?>" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -38,6 +38,7 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminltelayouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/notadinas/index.blade.php ENDPATH**/ ?>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SuratTugas;
 use App\Pegawai;
+use App\Opd;
 use Carbon\Carbon;
+use PDF;
 
 class SuratTugasController extends Controller
 {
@@ -107,4 +109,26 @@ class SuratTugasController extends Controller
     {
         //
     }
+	
+	public function surattugas_pdf($id)
+    {       
+		
+		$surattugas = SuratTugas::findOrFail($id);
+		$pegawai = Pegawai::all();
+		$pdf = PDF::loadview('surattugas/surattugas_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
+                ->setPaper('legal');
+
+                return $pdf->stream();
+		
+    	
+    }
+	
+	public function buat_spd($id)
+	{
+		$surattugas = SuratTugas::findOrFail($id);
+		$pegawai = Pegawai::all();
+		$opd = Opd::all();
+		//$surattugas = SuratTugas::all();
+        return view('spd/create', compact('pegawai','opd','surattugas'));
+	}
 }

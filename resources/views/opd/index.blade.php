@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container pt-5">
-        <h4>Daftar opd</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR OPD</b></h4>
+		<hr>
         <a href="{{url('/opd/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -35,5 +35,6 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 @endsection

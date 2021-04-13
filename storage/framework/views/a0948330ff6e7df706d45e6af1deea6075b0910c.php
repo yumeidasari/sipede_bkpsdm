@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container pt-5">
-        <h4>Daftar Surat Tugas</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR SURAT TUGAS</b></h4>
+		<hr>
         <a href="<?php echo e(url('/surattugas/create')); ?>" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -28,8 +28,10 @@
 					<td> <?php echo e($st->pegawai->nip); ?> </td>
 					<td> <?php echo e($st->pegawai->jabatan->jabatan); ?> </td>
                     <td>
-                        <a href="<?php echo e(url("/surattugas/$st->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>
-                        <a href="<?php echo e(url("/surattugas/$st->id")); ?>" class="btn btn-info btn-sm">view </a>
+                       <!-- <a href="<?php echo e(url("/surattugas/$st->id/edit")); ?>" class="btn btn-info btn-sm">edit </a> -->
+                       <!-- <a href="<?php echo e(url("/surattugas/$st->id")); ?>" class="btn btn-info btn-sm">view </a> -->
+						<a href="<?php echo e(url("surattugas/$st->id/surattugas_pdf")); ?>" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
+						<a href="<?php echo e(url("/spd/$st->id/create")); ?>" class="btn btn-info btn-sm" > Buat SPD </a>
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -40,6 +42,7 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminltelayouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/surattugas/index.blade.php ENDPATH**/ ?>

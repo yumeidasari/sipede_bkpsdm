@@ -3,9 +3,9 @@
 
 @section('content')
     <div class="container pt-4">
-        <h4><b>DAFTAR JABATAN</b></h4>
+        <h4><b>DAFTAR PANGKAT</b></h4>
 		<hr>
-        <a href="{{url('/jabatan/create')}}" class="btn btn-primary"> Tambah </a>
+        <a href="{{url('/pangkat/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
         
         <hr>
@@ -13,25 +13,26 @@
             <thead>
                 <tr>
                     <th>ID </th>
-                    <th>Nama Jabatan</th>
+                    <th>Nama Pangkat</th>
                     <th>Action </th>
                 </tr>
             </thead>
+			
             <tbody>
-                @foreach($semua_jabatan as $jabatan)
+                @foreach($semua_pangkat as $pangkat)
                 <tr>
-                    <td> {{$jabatan->id}}</td>
-                    <td> {{$jabatan->jabatan}} </td>
+                    <td> {{$pangkat->id}}</td>
+                    <td> {{$pangkat->pangkat}} </td>
                     <td>
-                        <a href="{{url("/jabatan/$jabatan->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        <a href="{{url("/jabatan/$jabatan->id")}}" class="btn btn-info btn-sm">view </a>
+                        <a href="{{url("/pangkat/$pangkat->id/edit")}}" class="btn btn-info btn-sm">edit </a>
+                        
                     </td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="10">{{$semua_jabatan->links()}}</th>
+                    <th colspan="10">{{$semua_pangkat->links()}}</th>
                 </tr>
             </tfoot>
         </table>

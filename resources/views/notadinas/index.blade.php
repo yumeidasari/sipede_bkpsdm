@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container pt-5">
-        <h4>Daftar Nota Dinas</h4>
-
+    <div class="container pt-4">
+        <h4><b>DAFTAR NOTA DINAS</b></h4>
+		<hr>
         <a href="{{url('/notadinas/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
-        <br/>
+        
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
@@ -41,5 +41,6 @@
                 </tr>
             </tfoot>
         </table>
+		<hr>
     </div>
 @endsection
