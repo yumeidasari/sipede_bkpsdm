@@ -51,11 +51,11 @@
                     <select name="golongan_id" class="form-control">
                         <option value="">Pilih Golongan</option>
                         @foreach($golongan as $g)
-                            <option value="{{$g->id}}"> {{$g->golongan}} </option>
+                            <option value="{{$g->id}}"> {{$g->golongan}}-{{$g->pangkat}} </option>
                         @endforeach
                     </select>
                 </div>
-
+				
                 <input type="submit" class="btn btn-primary" value="Simpan">
 
 

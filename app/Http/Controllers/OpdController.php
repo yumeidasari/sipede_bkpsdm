@@ -15,7 +15,7 @@ class OpdController extends Controller
     public function index()
     {
         //
-        $semua_opd=Opd::orderBy('id_opd','DESC')->paginate(10);
+        $semua_opd=Opd::orderBy('id','DESC')->paginate(10);
         return view('opd/index',compact('semua_opd'));
     }
 

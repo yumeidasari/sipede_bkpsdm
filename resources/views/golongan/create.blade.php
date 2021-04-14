@@ -31,6 +31,10 @@
                     <label for="">Golongan</label>
                     <input type="text" name="golongan" class="form-control">
                 </div>
+				<div class="form-group">
+                    <label for="">Pangkat</label>
+                    <input type="text" name="pangkat" class="form-control">
+                </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
 

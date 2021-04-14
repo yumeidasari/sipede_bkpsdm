@@ -17,7 +17,7 @@
             <tbody>
                 <?php $__currentLoopData = $semua_opd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $opd): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($opd->id_opd); ?></td>
+                    <td> <?php echo e($opd->id); ?></td>
                     <td> <?php echo e($opd->nama_opd); ?> </td>
                     <td>
                         <a href="<?php echo e(url("/opd/$opd->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>

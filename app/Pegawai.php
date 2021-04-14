@@ -18,4 +18,5 @@ class Pegawai extends Model
     {
         return $this->belongsTo('App\Golongan', 'golongan_id');
     }
+		
 }

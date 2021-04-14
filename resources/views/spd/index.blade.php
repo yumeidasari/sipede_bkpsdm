@@ -30,7 +30,7 @@
 					<td>
                         <!-- <a href="{{url("/spd/$spd->id/edit")}}" class="btn btn-info btn-sm">edit </a> -->
                         <!-- <a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm">view </a> -->
-						<a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
+						<a href="{{url("spd/$spd->id/spd_pdf") }}" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
                     </td>
                 </tr>
                 @endforeach

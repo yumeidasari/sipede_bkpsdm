@@ -4,10 +4,14 @@
     
 	<title>Data Nota Dinas</title>
 	<link rel="shortcut icon" type="image/png" href="<?php echo e(asset('/storage/img/logo-beltim.png')); ?>">
+	<style type="text/css">
+		p {line-height:2; }
+		.contoh {  line-height: 1.5em; }
+	</style>
 </head>
 
 
-    <table  align="center" width="700px"  >
+    <table  align="center" width="700px" >
         <tr>
         <td ><center><img src="<?php echo e(asset('/storage/img/logo-beltim.png')); ?>" width="70" height="90"></center></td>
         <td >
@@ -34,7 +38,7 @@
     
     <table align="center" width="700px" >
         <tr>
-            <td >
+            <td colspan="2" class="contoh">
                 <!--p align="justify"><span style="padding-left:40px;">
                 Diterbitkan berdasarkan Peraturan Menteri Kelautan dan Perikanan Nomor PER.27/MEN/2009 
                 dan Keputusan Direktur Jenderal Perikanan Tangkap Nomor 36/DJ-PT/201. <br></span>
@@ -45,7 +49,7 @@
                 <br><span >Dari</span><span style="padding-left:63px;">:</span>
 					<span style="padding-left:15px;"><?php echo e($nodin->nd_dari); ?></span>
                 <br><span >Tanggal</span><span style="padding-left:39px;">:</span>
-					<span style="padding-left:15px;"><?php echo e($nodin->nd_tgl_nodin); ?></span>
+					<span style="padding-left:15px;"><?php echo e(Carbon\Carbon::parse($nodin->nd_tgl_nodin)->format('d F Y')); ?></span>
 				<br><span >Nomor</span><span style="padding-left:46.5px;">:</span>
 					<span style="padding-left:15px;"><?php echo e($nodin->nd_nomor); ?></span>
 				<br><span >Lampiran</span><span style="padding-left:30px;">:</span>
@@ -57,10 +61,12 @@
             
         </tr>
 		 <tr>
-            <td ><hr> </td>
+            <td colspan="2"><hr> </td>
         </tr>
     
         <tr>
+			<td width="70px">
+			</td>
             <td >
                 
 				<p align="justify"><span style="padding-left:40px;">
@@ -86,9 +92,7 @@
                     
                 
                 <br>
-                <br>
                 
-
                 <p align="justify"><span style="padding-left:40px;">
                 <?php echo e($nodin->nd_kalimat_penutup); ?><br></span>
 				</p>
@@ -125,16 +129,12 @@
             </td>
             <td>
                 
-                  <p><b><span><center> ..,</center></span><b>   
+                  <p><b><span><center><?php echo e($nodin->penandatangan->jabatan->jabatan); ?></center></span><b>   
                     <br>
                     <br> 
-                    <br>
-                    <br> 
-                    <span><center> <b><u>..</u></b></cener></span>  
                      
-                    <span><center> <b>..</b></center></span> 
-                    
-                    <span><center><b>NIP...</b></center></span>
+                    <span><center> <b><u><?php echo e($nodin->penandatangan->nama_pegawai); ?></u></b></center></span>  
+                    <span><center><b>NIP.<?php echo e($nodin->penandatangan->nip); ?></b></center></span>
 
                 </p>
             </td>

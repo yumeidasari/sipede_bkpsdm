@@ -8,11 +8,16 @@
   <title>SIPEDE | Dashboard</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?php echo e(url('adminlte-v3/plugins/fontawesome-free/css/all.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('adminlte-v3/plugins/fontawesome-free/css/all.min.css')); ?>">
+  <!--link rel="stylesheet" href="<?php echo e(url('adminlte-v3/plugins/fontawesome-free/css/all.min.css')); ?>"-->
+  
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="<?php echo e(url('adminlte-v3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('adminlte-v3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>">
+  <!--link rel="stylesheet" href="<?php echo e(url('adminlte-v3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>"-->
+  
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo e(url('adminlte-v3/dist/css/adminlte.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('adminlte-v3/dist/css/adminlte.min.css')); ?>">
+  <!--link rel="stylesheet" href="<?php echo e(url('adminlte-v3/dist/css/adminlte.min.css')); ?>"-->
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Ionicons -->
@@ -49,28 +54,41 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
-<script src="<?php echo e(url('adminlte-v3/plugins/jquery/jquery.min.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/plugins/jquery/jquery.min.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/plugins/jquery/jquery.min.js')); ?>"></script>
+
 <!-- Bootstrap -->
-<script src="<?php echo e(url('adminlte-v3/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 <!-- overlayScrollbars -->
-<script src="<?php echo e(url('adminlte-v3/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')); ?>"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo e(url('adminlte-v3/dist/js/adminlte.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/dist/js/adminlte.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/dist/js/adminlte.js')); ?>"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="<?php echo e(url('adminlte-v3/dist/js/demo.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/dist/js/demo.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/dist/js/demo.js')); ?>"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="<?php echo e(url('adminlte-v3/plugins/jquery-mousewheel/jquery.mousewheel.js')); ?>"></script>
+<!-- <script src="<?php echo e(url('adminlte-v3/plugins/jquery-mousewheel/jquery.mousewheel.js')); ?>"></script>
 <script src="<?php echo e(url('adminlte-v3/plugins/raphael/raphael.min.js')); ?>"></script>
 <script src="<?php echo e(url('adminlte-v3/plugins/jquery-mapael/jquery.mapael.min.js')); ?>"></script>
-<script src="<?php echo e(url('adminlte-v3/plugins/jquery-mapael/maps/usa_states.min.js')); ?>"></script>
+<script src="<?php echo e(url('adminlte-v3/plugins/jquery-mapael/maps/usa_states.min.js')); ?>"></script> -->
+
+<script src="<?php echo e(asset('adminlte-v3/plugins/jquery-mousewheel/jquery.mousewheel.js')); ?>"></script>
+<script src="<?php echo e(asset('adminlte-v3/plugins/raphael/raphael.min.js')); ?>"></script>
+<script src="<?php echo e(asset('adminlte-v3/plugins/jquery-mapael/jquery.mapael.min.js')); ?>"></script>
+<script src="<?php echo e(asset('adminlte-v3/plugins/jquery-mapael/maps/usa_states.min.js')); ?>"></script>
 <!-- ChartJS -->
-<script src="<?php echo e(url('adminlte-v3/plugins/chart.js/Chart.min.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/plugins/chart.js/Chart.min.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/plugins/chart.js/Chart.min.js')); ?>"></script>
 
 <!-- PAGE SCRIPTS -->
-<script src="<?php echo e(url('adminlte-v3/dist/js/pages/dashboard2.js')); ?>"></script>
+<!--script src="<?php echo e(url('adminlte-v3/dist/js/pages/dashboard2.js')); ?>"></script-->
+<script src="<?php echo e(asset('adminlte-v3/dist/js/pages/dashboard2.js')); ?>"></script>
 
 
 </body>
