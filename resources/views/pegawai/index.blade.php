@@ -16,7 +16,7 @@
                     <th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Jabatan</th>
-					<th>Golongan</th>
+					<th>Pangkat/Golongan</th>
                     <th>Action </th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
                     <td> {{$pegawai->nama_pegawai}} </td>
 					<td> {{$pegawai->nip}} </td>
 					<td> {{$pegawai->jabatan->jabatan}} </td>
-					<td> {{$pegawai->golongan->golongan}} </td>
+					<td> {{$pegawai->golongan->pangkat}}/{{$pegawai->golongan->golongan}} </td>
                     <td>
                         <a href="{{url("/pegawai/$pegawai->id/edit")}}" class="btn btn-info btn-sm">edit </a>
                         <a href="{{url("/pegawai/$pegawai->id")}}" class="btn btn-info btn-sm">view </a>

@@ -41,37 +41,52 @@
             
               <li class="nav-item">
                 <a href="<?php echo e(url('pegawai')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>Pegawai</p>
                 </a>
               </li>
+              
+           
+            </ul>
+          </li>
+		  
+		   <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cubes"></i>
+              <p>
+                Data Referensi
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+                          
               <li class="nav-item">
                 <a href="<?php echo e(url('opd')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>OPD</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo e(url('jabatan')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>Jabatan</p>
                 </a>
               </li>
             
               <li class="nav-item">
                 <a href="<?php echo e(url('golongan')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Golongan</p>
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Pangkat/Golongan</p>
                 </a>
               </li>
 			  
 			  <li class="nav-item">
-                <a href="<?php echo e(url('pangkat')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pangkat</p>
+                <a href="<?php echo e(url('transportasi')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Alat Transportasi</p>
                 </a>
               </li>
-           
+			  
             </ul>
           </li>
 
@@ -87,19 +102,19 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo e(url('notadinas')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>Nota Dinas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo e(url('surattugas')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>Surat Tugas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo e(url('spd')); ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle-o nav-icon"></i>
                   <p>Surat Perjalanan Dinas</p>
                 </a>
               </li>

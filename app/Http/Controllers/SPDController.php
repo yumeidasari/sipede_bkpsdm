@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\SuratPerjalananDinas;
 use App\SuratTugas;
 use App\Opd;
+use PDF;
 
 class SPDController extends Controller
 {
@@ -111,5 +112,19 @@ class SPDController extends Controller
     public function destroy($id)
     {
         //
+    }
+	
+	public function spd_pdf($id)
+    {       
+		
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		
+		//$pegawai = Pegawai::all();
+		$pdf = PDF::loadview('spd/spd_pdf',['spd'=>$spd])
+                ->setPaper('legal');
+
+                return $pdf->stream();
+		
+    	
     }
 }

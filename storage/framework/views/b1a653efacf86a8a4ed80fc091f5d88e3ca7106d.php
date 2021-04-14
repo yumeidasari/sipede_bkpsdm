@@ -13,7 +13,7 @@
                     <th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Jabatan</th>
-					<th>Golongan</th>
+					<th>Pangkat/Golongan</th>
                     <th>Action </th>
                 </tr>
             </thead>
@@ -24,7 +24,7 @@
                     <td> <?php echo e($pegawai->nama_pegawai); ?> </td>
 					<td> <?php echo e($pegawai->nip); ?> </td>
 					<td> <?php echo e($pegawai->jabatan->jabatan); ?> </td>
-					<td> <?php echo e($pegawai->golongan->golongan); ?> </td>
+					<td> <?php echo e($pegawai->golongan->pangkat); ?>/<?php echo e($pegawai->golongan->golongan); ?> </td>
                     <td>
                         <a href="<?php echo e(url("/pegawai/$pegawai->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>
                         <a href="<?php echo e(url("/pegawai/$pegawai->id")); ?>" class="btn btn-info btn-sm">view </a>

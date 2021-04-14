@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container pt-4">
-        <h4><b>DAFTAR GOLONGAN</b></h4>
+        <h4><b>DAFTAR PANGKAT/GOLONGAN</b></h4>
 		<hr>
         <a href="{{url('/golongan/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
@@ -12,8 +12,9 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>NO </th>
                     <th>Golongan</th>
+					<th>Pangkat</th>
                     <th>Action </th>
                 </tr>
             </thead>
@@ -22,6 +23,7 @@
                 <tr>
                     <td> {{$golongan->id}}</td>
                     <td> {{$golongan->golongan}} </td>
+					<td> {{$golongan->pangkat}} </td>
                     <td>
                         <a href="{{url("/golongan/$golongan->id/edit")}}" class="btn btn-info btn-sm">edit </a>
                         

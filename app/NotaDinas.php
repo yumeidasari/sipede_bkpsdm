@@ -13,4 +13,9 @@ class NotaDinas extends Model
     {
         return $this->belongsTo('App\Pegawai', 'nd_pegawai_id');
     }
+	
+	public function penandatangan()
+    {
+        return $this->belongsTo('App\Pegawai', 'nd_penanda_tangan_id');
+    }
 }

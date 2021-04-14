@@ -19,6 +19,7 @@ class PegawaiController extends Controller
         //
 		$jabatan = Jabatan::all();
         $golongan = Golongan::all();
+		
 		$semua_pegawai=Pegawai::orderBy('id','DESC')->paginate(10);
         return view('pegawai/index',compact('semua_pegawai','jabatan','golongan'));
     }
@@ -33,7 +34,7 @@ class PegawaiController extends Controller
         //
 		$jabatan = Jabatan::all();
         $golongan = Golongan::all();
-
+		
         return view('pegawai/create', compact('jabatan','golongan'));
     }
 

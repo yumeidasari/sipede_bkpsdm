@@ -41,6 +41,7 @@ class GolonganController extends Controller
         //
 		$golongan_baru = new Golongan;
         $golongan_baru->golongan = $request->golongan;
+		$golongan_baru->pangkat = $request->pangkat;
    
         $golongan_baru->save();
     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 03:31 AM
+-- Generation Time: Apr 14, 2021 at 08:52 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -43,6 +43,7 @@ CREATE TABLE `migrations` (
 CREATE TABLE `ms_golongan` (
   `id` int(11) NOT NULL,
   `golongan` varchar(255) NOT NULL,
+  `pangkat` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -51,6 +52,24 @@ CREATE TABLE `ms_golongan` (
 -- Dumping data for table `ms_golongan`
 --
 
+INSERT INTO `ms_golongan` (`id`, `golongan`, `pangkat`, `created_at`, `updated_at`) VALUES
+(1, 'II A', 'Pengatur Muda', '2021-04-06 01:27:10', '2021-04-06 01:27:10'),
+(2, 'III B', 'Penata Muda Tingkat 1', '2021-04-12 07:21:10', '2021-04-12 07:21:10'),
+(3, 'III C', 'Penata', '2021-04-12 07:21:16', '2021-04-12 07:21:16'),
+(4, 'III A', 'Penata Muda', '2021-04-12 07:21:21', '2021-04-12 07:21:21'),
+(5, 'I A', 'Juru Muda', '2021-04-14 03:41:42', '2021-04-14 03:41:42'),
+(6, 'I B', 'Juru Muda Tingkat 1', '2021-04-14 03:43:44', '2021-04-14 03:43:44'),
+(7, 'I C', 'Juru', '2021-04-14 03:43:53', '2021-04-14 03:43:53'),
+(8, 'I D', 'Juru Tingkat 1', '2021-04-14 03:44:04', '2021-04-14 03:44:04'),
+(9, 'II B', 'Pengatur Muda Tingkat 1', '2021-04-14 03:44:38', '2021-04-14 03:44:38'),
+(10, 'II C', 'Pengatur', '2021-04-14 03:44:48', '2021-04-14 03:44:48'),
+(11, 'II D', 'Pengatur Tingkat 1', '2021-04-14 03:45:04', '2021-04-14 03:45:04'),
+(12, 'III D', 'Penata Tingkat 1', '2021-04-14 03:45:32', '2021-04-14 03:45:32'),
+(13, 'IV A', 'Pembina', '2021-04-14 03:45:43', '2021-04-14 03:45:43'),
+(14, 'IV B', 'Pembina Tingkat 1', '2021-04-14 03:45:54', '2021-04-14 03:45:54'),
+(15, 'IV C', 'Pembina Utama Muda', '2021-04-14 03:46:49', '2021-04-14 03:46:49'),
+(16, 'IV D', 'Pembina Utama Madya', '2021-04-14 03:47:05', '2021-04-14 03:47:05'),
+(17, 'IV E', 'Pembina Utama', '2021-04-14 03:47:17', '2021-04-14 03:47:17');
 
 -- --------------------------------------------------------
 
@@ -70,6 +89,7 @@ CREATE TABLE `ms_jabatan` (
 --
 
 
+
 -- --------------------------------------------------------
 
 --
@@ -77,7 +97,7 @@ CREATE TABLE `ms_jabatan` (
 --
 
 CREATE TABLE `ms_opd` (
-  `id_opd` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_opd` varchar(255) NOT NULL,
   `kode` varchar(50) NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -87,6 +107,7 @@ CREATE TABLE `ms_opd` (
 --
 -- Dumping data for table `ms_opd`
 --
+
 
 
 -- --------------------------------------------------------
@@ -101,6 +122,7 @@ CREATE TABLE `ms_pegawai` (
   `nip` varchar(50) NOT NULL,
   `jabatan_id` int(11) NOT NULL,
   `golongan_id` int(11) NOT NULL,
+  `pangkat_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,6 +130,7 @@ CREATE TABLE `ms_pegawai` (
 --
 -- Dumping data for table `ms_pegawai`
 --
+
 
 
 -- --------------------------------------------------------
@@ -134,6 +157,23 @@ CREATE TABLE `nota_dinas` (
 
 --
 -- Dumping data for table `nota_dinas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ref_alat_transportasi`
+--
+
+CREATE TABLE `ref_alat_transportasi` (
+  `id` int(11) NOT NULL,
+  `alat_transportasi` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ref_alat_transportasi`
 --
 
 
@@ -180,7 +220,7 @@ CREATE TABLE `surat_tugas` (
   `st_pegawai_id_tujuan` int(11) NOT NULL,
   `st_alasan_penugasan` varchar(255) NOT NULL,
   `st_lama_tugas` int(11) NOT NULL,
-  `st_tgl_awal` datetime NOT NULL,
+  `st_tgl_awal` date NOT NULL,
   `st_tgl_akhir` datetime NOT NULL,
   `st_tempat_penetapan` varchar(255) NOT NULL,
   `st_tgl_penetapan` datetime NOT NULL,
@@ -237,7 +277,7 @@ ALTER TABLE `ms_jabatan`
 -- Indexes for table `ms_opd`
 --
 ALTER TABLE `ms_opd`
-  ADD PRIMARY KEY (`id_opd`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ms_pegawai`
@@ -249,6 +289,12 @@ ALTER TABLE `ms_pegawai`
 -- Indexes for table `nota_dinas`
 --
 ALTER TABLE `nota_dinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ref_alat_transportasi`
+--
+ALTER TABLE `ref_alat_transportasi`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -283,25 +329,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ms_golongan`
 --
 ALTER TABLE `ms_golongan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ms_jabatan`
 --
 ALTER TABLE `ms_jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ms_opd`
 --
 ALTER TABLE `ms_opd`
-  MODIFY `id_opd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ms_pegawai`
 --
 ALTER TABLE `ms_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `nota_dinas`
@@ -310,24 +356,26 @@ ALTER TABLE `nota_dinas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `ref_alat_transportasi`
+--
+ALTER TABLE `ref_alat_transportasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `surat_perjalanan_dinas`
 --
 ALTER TABLE `surat_perjalanan_dinas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

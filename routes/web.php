@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/notadinas/{id}/nodin_pdf', 'NotaDinasController@nodin_pdf');
 Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
 Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
+Route::get('/spd/{id}/spd_pdf', 'SPDController@spd_pdf');
 Route::get('/spd/{id}/create', 'SuratTugasController@buat_spd');
 
 Route::resource('/opd','OpdController');
@@ -27,6 +28,6 @@ Route::resource('/pegawai', 'PegawaiController');
 Route::resource('/surattugas', 'SuratTugasController');
 Route::resource('/notadinas', 'NotaDinasController');
 Route::resource('/spd', 'SPDController');
-Route::resource('/pangkat', 'PangkatController');
+Route::resource('/transportasi', 'AlatTransportasiController');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

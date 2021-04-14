@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pangkat;
+use App\AlatTransportasi;
 
-class PangkatController extends Controller
+class AlatTransportasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PangkatController extends Controller
     public function index()
     {
         //
-		$semua_pangkat=Pangkat::orderBy('id','DESC')->paginate(10);
-        return view('pangkat/index',compact('semua_pangkat'));
+		$semua_transportasi=AlatTransportasi::orderBy('id','DESC')->paginate(10);
+        return view('transportasi/index',compact('semua_transportasi'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PangkatController extends Controller
     public function create()
     {
         //
-		return view('pangkat/create');
+		return view('transportasi/create');
     }
 
     /**
@@ -39,12 +39,12 @@ class PangkatController extends Controller
     public function store(Request $request)
     {
         //
-		$pangkat_baru = new Pangkat;
-        $pangkat_baru->pangkat = $request->pangkat;
+		$transportasi_baru = new AlatTransportasi;
+        $transportasi_baru->alat_transportasi = $request->alat_transportasi;
    
-        $pangkat_baru->save();
+        $transportasi_baru->save();
     
-        return redirect()->to('/pangkat/create')->with('message', 'Berhasil menambahkan pangkat');
+        return redirect()->to('/transportasi/create')->with('message', 'Berhasil menambahkan data alat transportasi');
     }
 
     /**

@@ -51,11 +51,11 @@
                     <select name="golongan_id" class="form-control">
                         <option value="">Pilih Golongan</option>
                         <?php $__currentLoopData = $golongan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $g): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($g->id); ?>"> <?php echo e($g->golongan); ?> </option>
+                            <option value="<?php echo e($g->id); ?>"> <?php echo e($g->golongan); ?>-<?php echo e($g->pangkat); ?> </option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
-
+				
                 <input type="submit" class="btn btn-primary" value="Simpan">
 
 

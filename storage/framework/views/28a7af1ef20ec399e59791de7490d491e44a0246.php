@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="container pt-4">
-        <h4><b>DAFTAR GOLONGAN</b></h4>
+        <h4><b>DAFTAR PANGKAT/GOLONGAN</b></h4>
 		<hr>
         <a href="<?php echo e(url('/golongan/create')); ?>" class="btn btn-primary"> Tambah </a>
         <br/>
@@ -9,8 +9,9 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>NO </th>
                     <th>Golongan</th>
+					<th>Pangkat</th>
                     <th>Action </th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                 <tr>
                     <td> <?php echo e($golongan->id); ?></td>
                     <td> <?php echo e($golongan->golongan); ?> </td>
+					<td> <?php echo e($golongan->pangkat); ?> </td>
                     <td>
                         <a href="<?php echo e(url("/golongan/$golongan->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>
                         
