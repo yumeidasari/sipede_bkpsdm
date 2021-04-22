@@ -19,9 +19,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_golongan as $golongan)
                 <tr>
-                    <td> {{$golongan->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> {{$golongan->golongan}} </td>
 					<td> {{$golongan->pangkat}} </td>
                     <td>

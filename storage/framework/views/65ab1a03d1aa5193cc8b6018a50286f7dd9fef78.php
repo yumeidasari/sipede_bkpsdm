@@ -87,6 +87,13 @@
                 </a>
               </li>
 			  
+			  <li class="nav-item">
+                <a href="<?php echo e(url('biaya')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Biaya</p>
+                </a>
+              </li>
+			  
             </ul>
           </li>
 
@@ -100,12 +107,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!--li class="nav-item">
                 <a href="<?php echo e(url('notadinas')); ?>" class="nav-link">
                   <i class="far fa-circle-o nav-icon"></i>
                   <p>Nota Dinas</p>
                 </a>
-              </li>
+              </li-->
               <li class="nav-item">
                 <a href="<?php echo e(url('surattugas')); ?>" class="nav-link">
                   <i class="far fa-circle-o nav-icon"></i>
@@ -118,19 +125,45 @@
                   <p>Surat Perjalanan Dinas</p>
                 </a>
               </li>
-
-              
-              
+ 
+            </ul>
+          </li>
+		  
+		  <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-plane"></i>
+              <p>
+                Data Perjalanan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="<?php echo e(url('berkas')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Upload Berkas</p>
+                </a>
+              </li>
+			  <li class="nav-item">
+                <a href="<?php echo e(url('rincianbiaya')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Rincian Biaya </p>
+                </a>
+              </li>
+			  <li class="nav-item">
+                <a href="<?php echo e(url('kuitansi')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Kuitansi </p>
+                </a>
+              </li>
             </ul>
           </li>
 
           <li class="nav-item">
-              
-            
+           
           </li>
-
-          
-
+		
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

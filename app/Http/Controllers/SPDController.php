@@ -9,6 +9,7 @@ use App\SuratPerjalananDinas;
 use App\SuratTugas;
 use App\Opd;
 use PDF;
+use App\Biaya;
 
 class SPDController extends Controller
 {
@@ -127,4 +128,12 @@ class SPDController extends Controller
 		
     	
     }
+	
+	public function rincian_biaya($id)
+	{
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		$biaya = Biaya::all();
+		
+        return view('rincianbiaya/create', compact('spd', 'biaya'));
+	}
 }

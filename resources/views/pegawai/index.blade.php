@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Jabatan</th>
@@ -21,9 +21,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_pegawai as $pegawai)
                 <tr>
-                    <td> {{$pegawai->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> {{$pegawai->nama_pegawai}} </td>
 					<td> {{$pegawai->nip}} </td>
 					<td> {{$pegawai->jabatan->jabatan}} </td>

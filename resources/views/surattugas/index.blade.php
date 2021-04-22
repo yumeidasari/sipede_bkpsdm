@@ -2,6 +2,13 @@
 
 
 @section('content')
+<head>
+	<style>
+		.custom {
+		width: 110px !important;
+		}
+	</style>
+</head>
     <div class="container pt-4">
         <h4><b>DAFTAR SURAT TUGAS</b></h4>
 		<hr>
@@ -12,7 +19,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor Surat Tugas</th>
 					<th>Dasar Penugasan</th>
 					<th>Nama Pegawai</th>
@@ -22,9 +29,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_surattugas as $st)
                 <tr>
-                    <td> {{$st->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> {{$st->st_nomor}} </td>
 					<td> {{$st->st_dasar_penugasan}} </td>
 					<td> {{$st->pegawai->nama_pegawai}} </td>
@@ -33,8 +41,10 @@
                     <td>
                        <!-- <a href="{{url("/surattugas/$st->id/edit")}}" class="btn btn-info btn-sm">edit </a> -->
                        <!-- <a href="{{url("/surattugas/$st->id")}}" class="btn btn-info btn-sm">view </a> -->
-						<a href="{{url("surattugas/$st->id/surattugas_pdf") }}" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
-						<a href="{{url("/spd/$st->id/create")}}" class="btn btn-info btn-sm" > Buat SPD </a>
+						<a href="{{url("surattugas/$st->id/surattugas_pdf") }}" class="btn btn-danger btn-sm custom" target='_BLANK' > Export to PDF </a><br>
+						<a href="{{url("/spd/$st->id/create")}}" class="btn btn-secondary btn-sm custom" > Buat SPD </a><br>
+						<!--a href="{{url("/berkas/$st->id/create")}}" class="btn btn-info btn-sm custom" > Upload Berkas </a-->
+						
                     </td>
                 </tr>
                 @endforeach

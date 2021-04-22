@@ -9,7 +9,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor Nota Dinas</th>
 					<th>Kepada</th>
 					<th>Dari</th>
@@ -18,9 +18,10 @@
                 </tr>
             </thead>
             <tbody>
+				<?php $i=1 ?>
                 <?php $__currentLoopData = $semua_notadinas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nd): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($nd->id); ?></td>
+                    <td> <?php echo e($i++); ?></td>
                     <td> <a href="<?php echo e(url("notadinas/$nd->id/nodin_pdf")); ?>" class="links" target='_BLANK'> <?php echo e($nd->nd_nomor); ?> </a>
 					<td> <?php echo e($nd->nd_kepada); ?> </td>
 					<td> <?php echo e($nd->nd_dari); ?> </td>

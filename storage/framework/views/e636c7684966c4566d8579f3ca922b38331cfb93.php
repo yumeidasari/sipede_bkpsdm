@@ -27,7 +27,8 @@
 					<td>
                         <!-- <a href="<?php echo e(url("/spd/$spd->id/edit")); ?>" class="btn btn-info btn-sm">edit </a> -->
                         <!-- <a href="<?php echo e(url("/spd/$spd->id")); ?>" class="btn btn-info btn-sm">view </a> -->
-						<a href="<?php echo e(url("spd/$spd->id/spd_pdf")); ?>" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
+						<a href="<?php echo e(url("spd/$spd->id/spd_pdf")); ?>" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
+						<!-- a href="<?php echo e(url("/rincianbiaya/$spd->id/create")); ?>" class="btn btn-info btn-sm custom" > Rincian Biaya </a -->
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
