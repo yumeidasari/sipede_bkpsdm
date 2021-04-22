@@ -9,15 +9,16 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nama Jabatan</th>
                     <th>Action </th>
                 </tr>
             </thead>
             <tbody>
+				<?php $i=1 ?>
                 <?php $__currentLoopData = $semua_jabatan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jabatan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($jabatan->id); ?></td>
+                    <td> <?php echo e($i++); ?></td>
                     <td> <?php echo e($jabatan->jabatan); ?> </td>
                     <td>
                         <a href="<?php echo e(url("/jabatan/$jabatan->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>

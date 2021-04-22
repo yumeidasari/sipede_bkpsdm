@@ -31,7 +31,8 @@
             <td >
                 
                 <font size="4"><span >SKPD/Unit Kerja :</span>
-				<br><span>{{$spd->opd->nama_opd}}</span>
+				<br><span>Badan Kepegawaian dan Pengembangan<BR>Sumber Daya Manusia</span>
+				<br><span>Pemerintah Kabupaten Belitung Timur</span>
 				
                 <br><span style="padding-left:380px;">Lembar Ke</span><span style="padding-left:15px;">: {{$spd->spd_lembar_ke}}</span>
 					
@@ -171,11 +172,10 @@
 			<td width="300px" colspan="2">
 				<font size="4">1.
 							<BR>2.
-							<BR>3.<BR>4.</font>
+							</font>
 			</td>
 			<td width="350px" colspan="2">
 				<font size="4"> 
-							<BR><BR>
 							<BR></font>
 			</td>
 		</tr>
@@ -186,12 +186,13 @@
 			</td>
 			<td width="300px" colspan="2">
 				<font size="4">Pembebanan Anggaran
-							<BR>a. Instansi
+							<BR>a. Instansi<BR><br>
 							<BR>b. Akun/Kode Rekening</font>
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4"><BR>a.
-								<BR>b.</font>
+				<font size="4"><BR>a. Badan Kepegawaian dan Pengembangan Sumber Daya Manusia
+										Kabupaten Belitung Timur
+								<BR>b. DPA/A.1/5.03.5.04.0.00/5.1.02.04.01.0001</font>
 			</td>
 		</tr>
 		
@@ -206,9 +207,10 @@
 				<font size="4">{{$spd->ket}}</font>
 			</td>
 		</tr>
+				
 	</table>
-	<BR>
 	
+	<BR>
 	<table align="center" width="700px" >
 		<tr>
 			<td width="50px">
@@ -219,7 +221,7 @@
 				<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
 			<td width="350px" colspan="2">
 				<font size="4"><span style="padding-left:27px;">Dikeluarkan di {{$spd->surattugas->st_tempat_penetapan}}</span>
-							<BR><span style="padding-left:27px;">Tanggal {{$spd->surattugas->st_tgl_penetapan}}</span>
+							<BR><span style="padding-left:27px;">Tanggal {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
 							<BR>
 				</font>
 							<BR><center><b><font size="4">PPK / PA / KPA *) </font></b></center>
@@ -231,7 +233,225 @@
 			</td>
 		</tr>
 	</table>
+	<BR>
+	<table>
+	</table>
+	<BR><BR><BR>
+	<table align="center" width="700px" rules="all">
+		<tr>
+			<td width="350px">
+				
+			</td>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:15px;">I.</span>
+				<span style="padding-left:10px;">Berangkat dari</span>
+				<span style="padding-left:5px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">(Tempat Kedudukan)</span>
+				<BR>
+				<span style="padding-left:40px;">Ke</span>
+				<span style="padding-left:95px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:15px;">II.</span>
+				<span style="padding-left:4px;">Tiba di</span>
+				<span style="padding-left:63px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:40px;">Berangkat dari</span>
+				<span style="padding-left:5px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Ke</span>
+				<span style="padding-left:95px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:10px;">III.</span>
+				<span style="padding-left:4px;">Tiba di</span>
+				<span style="padding-left:63px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:40px;">Berangkat dari</span>
+				<span style="padding-left:5px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Ke</span>
+				<span style="padding-left:95px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:10px;">IV.</span>
+				<span style="padding-left:4px;">Tiba di</span>
+				<span style="padding-left:63px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:40px;">Berangkat dari</span>
+				<span style="padding-left:5px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Ke</span>
+				<span style="padding-left:95px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">Kepala</span>
+				<span style="padding-left:65px;">: .............</span>
+				<BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td width="350px">
+				<font size="4">
+				<span style="padding-left:15px;">V.</span>
+				<span style="padding-left:4px;">Tiba di</span>
+				<span style="padding-left:63px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">(Tempat Kedudukan)</span>
+				<BR>
+				<BR>
+				<span style="padding-left:40px;">Pada Tanggal</span>
+				<span style="padding-left:15px;">: .............</span>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR><BR><BR>
+				<BR>
+				<span style="padding-left:40px;">(.....................................)</span>
+				<BR>
+				<span style="padding-left:40px;">NIP ...................................</span>
+				
+				</font>
+			</td>
+			<td width="350px">
+				
+				<p align="justify"><font size="4">
+					Telah diperiksa dengan keterangan bahwa perjalanan tersebut atas perintahnya
+					dan semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya
+				</font>
+				</p>				
+				<center><font size="4">PPK / PA / KPA,*)</font></center>
+				<BR>
+				<BR>
+				<center><font size="4">(..............................)</font></center>
+				<center><font size="4">NIP..............................)</font></center>
+				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<font size="4">
+				<span style="padding-left:10px;">VI.</span>
+				<span style="padding-left:4px;">Catatan Lain-lain</span>
+				</font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<font size="4">
+				
+				<p align="justify"><span style="padding-left:4px;">PPK/Pejabat yang berwenang yang
+					menerbitkan SPD, pegawai yang melakukan perjalanan dinas, para pejabat yang mengesahkan
+					tanggal berangkat/tiba, serta bendahara pengeluaran/bendahara pengeluaran pembantu
+					bertanggungjawab berdasarkan peraturan-peraturan keuangan Negara/Daerah apabila Negara/Daerah
+					menderita rugi akibat kesalahan, kelalaian dan kealpaannya.
+				</p></span>
+				</font>
+			</td>
+		</tr>
+		
+	</table>
 	
-	
-
 </html>

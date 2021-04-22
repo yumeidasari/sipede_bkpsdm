@@ -7,6 +7,7 @@ use App\SuratTugas;
 use App\Pegawai;
 use App\Opd;
 use Carbon\Carbon;
+use App\Berkas;
 use PDF;
 
 class SuratTugasController extends Controller
@@ -61,6 +62,11 @@ class SuratTugasController extends Controller
 		$st_baru->st_penanda_tangan_id = $request->st_penanda_tangan_id;
 		
 		$st_baru->save();
+		
+		$berkas_baru = new Berkas;
+		$berkas_baru->surattugas_id = $st_baru->id;
+		
+		$berkas_baru->save();
     
         return redirect()->to('/surattugas/create')->with('message', 'Berhasil menambahkan data Surat Tugas');
     }
@@ -130,5 +136,12 @@ class SuratTugasController extends Controller
 		$opd = Opd::all();
 		//$surattugas = SuratTugas::all();
         return view('spd/create', compact('pegawai','opd','surattugas'));
+	}
+	
+	public function upload_berkas($id)
+	{
+		$surattugas = SuratTugas::findOrFail($id);
+		
+        return view('berkas/create', compact('surattugas'));
 	}
 }

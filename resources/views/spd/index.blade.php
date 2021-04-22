@@ -11,7 +11,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor SPD</th>
 					<th>Nama Pegawai</th>
 					<th>NIP</th>
@@ -20,9 +20,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_spd as $spd)
                 <tr>
-                    <td> {{$spd->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> {{$spd->spd_nomor}} </td>
 					<td> {{$spd->pegawai->nama_pegawai}} </td>
 					<td> {{$spd->pegawai->nip}} </td>
@@ -30,7 +31,8 @@
 					<td>
                         <!-- <a href="{{url("/spd/$spd->id/edit")}}" class="btn btn-info btn-sm">edit </a> -->
                         <!-- <a href="{{url("/spd/$spd->id")}}" class="btn btn-info btn-sm">view </a> -->
-						<a href="{{url("spd/$spd->id/spd_pdf") }}" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
+						<a href="{{url("spd/$spd->id/spd_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
+						<!-- a href="{{url("/rincianbiaya/$spd->id/create")}}" class="btn btn-info btn-sm custom" > Rincian Biaya </a -->
                     </td>
                 </tr>
                 @endforeach

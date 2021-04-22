@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor Nota Dinas</th>
 					<th>Kepada</th>
 					<th>Dari</th>
@@ -21,9 +21,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_notadinas as $nd)
                 <tr>
-                    <td> {{$nd->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> <a href="{{url("notadinas/$nd->id/nodin_pdf") }}" class="links" target='_BLANK'> {{$nd->nd_nomor}} </a>
 					<td> {{$nd->nd_kepada}} </td>
 					<td> {{$nd->nd_dari}} </td>

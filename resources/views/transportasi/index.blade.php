@@ -18,9 +18,10 @@
                 </tr>
             </thead>
             <tbody>
+				@php $i=1 @endphp
                 @foreach($semua_transportasi as $transportasi)
                 <tr>
-                    <td> {{$transportasi->id}}</td>
+                    <td> {{$i++}}</td>
                     <td> {{$transportasi->alat_transportasi}} </td>
                     <td>
                         <a href="{{url("/transportasi/$transportasi->id/edit")}}" class="btn btn-info btn-sm">edit </a>

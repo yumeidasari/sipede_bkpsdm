@@ -1,4 +1,11 @@
 <?php $__env->startSection('content'); ?>
+<head>
+	<style>
+		.custom {
+		width: 110px !important;
+		}
+	</style>
+</head>
     <div class="container pt-4">
         <h4><b>DAFTAR SURAT TUGAS</b></h4>
 		<hr>
@@ -30,8 +37,10 @@
                     <td>
                        <!-- <a href="<?php echo e(url("/surattugas/$st->id/edit")); ?>" class="btn btn-info btn-sm">edit </a> -->
                        <!-- <a href="<?php echo e(url("/surattugas/$st->id")); ?>" class="btn btn-info btn-sm">view </a> -->
-						<a href="<?php echo e(url("surattugas/$st->id/surattugas_pdf")); ?>" class="btn btn-info btn-sm" target='_BLANK'> Export to PDF </a>
-						<a href="<?php echo e(url("/spd/$st->id/create")); ?>" class="btn btn-info btn-sm" > Buat SPD </a>
+						<a href="<?php echo e(url("surattugas/$st->id/surattugas_pdf")); ?>" class="btn btn-danger btn-sm custom" target='_BLANK' > Export to PDF </a><br>
+						<a href="<?php echo e(url("/spd/$st->id/create")); ?>" class="btn btn-secondary btn-sm custom" > Buat SPD </a><br>
+						<!--a href="<?php echo e(url("/berkas/$st->id/create")); ?>" class="btn btn-info btn-sm custom" > Upload Berkas </a-->
+						
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

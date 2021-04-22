@@ -16,9 +16,10 @@
                 </tr>
             </thead>
             <tbody>
+				<?php $i=1 ?>
                 <?php $__currentLoopData = $semua_golongan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $golongan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($golongan->id); ?></td>
+                    <td> <?php echo e($i++); ?></td>
                     <td> <?php echo e($golongan->golongan); ?> </td>
 					<td> <?php echo e($golongan->pangkat); ?> </td>
                     <td>

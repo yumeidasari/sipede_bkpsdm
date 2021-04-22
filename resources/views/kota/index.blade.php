@@ -3,9 +3,9 @@
 
 @section('content')
     <div class="container pt-4">
-        <h4><b>DAFTAR JABATAN</b></h4>
+        <h4><b>DAFTAR BIAYA</b></h4>
 		<hr>
-        <a href="{{url('/jabatan/create')}}" class="btn btn-primary"> Tambah </a>
+        <a href="{{url('/biaya/create')}}" class="btn btn-primary"> Tambah </a>
         <br/>
         
         <hr>
@@ -13,26 +13,26 @@
             <thead>
                 <tr>
                     <th>No. </th>
-                    <th>Nama Jabatan</th>
+                    <th>Nama Biaya</th>
                     <th>Action </th>
                 </tr>
             </thead>
             <tbody>
 				@php $i=1 @endphp
-                @foreach($semua_jabatan as $jabatan)
+                @foreach($semua_biaya as $biaya)
                 <tr>
                     <td> {{$i++}}</td>
-                    <td> {{$jabatan->jabatan}} </td>
+                    <td> {{$biaya->biaya}} </td>
                     <td>
-                        <a href="{{url("/jabatan/$jabatan->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        <a href="{{url("/jabatan/$jabatan->id")}}" class="btn btn-info btn-sm">view </a>
+                        <a href="{{url("/biaya/$biaya->id/edit")}}" class="btn btn-info btn-sm">edit </a>
+                        <a href="{{url("/biaya/$biaya->id")}}" class="btn btn-info btn-sm">view </a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="10">{{$semua_jabatan->links()}}</th>
+                    <th colspan="10">{{$semua_biaya->links()}}</th>
                 </tr>
             </tfoot>
         </table>
