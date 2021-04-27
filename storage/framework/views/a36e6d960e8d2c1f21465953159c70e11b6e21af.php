@@ -1,7 +1,9 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container pt-3">
         <div class="col-md-6 offset-md-3">
-
+		<h3><center>Buat Data OPD Baru</center></h3>
+                    <hr>
+                    <br>
             <?php if(Session::has('message')): ?>
                 <div class="alert alert-success">
                     <?php echo e(Session::get('message')); ?>
@@ -24,10 +26,10 @@
                 <?php echo e(csrf_field()); ?>
 
 
-                <div class="form-group">
+                <!-- div class="form-group">
                     <label> Kode OPD </label>
                     <input type="text" class="form-control" name="kode" />
-                </div>
+                </div -->
 
                 <div class="form-group">
                     <label for="">Nama OPD</label>
@@ -35,7 +37,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="<?php echo e(url('/opd')); ?>" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>
@@ -49,4 +51,4 @@
         })
     </script>
 <?php $__env->stopPush(); ?>
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/opd/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('adminltelayouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp7\htdocs\laravel_framework\sipede_bkpsdm\resources\views/opd/create.blade.php ENDPATH**/ ?>

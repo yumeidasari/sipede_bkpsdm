@@ -17,7 +17,11 @@ class KuitansiController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$semua_kuitansi=Kuitansi::orderBy('id','DESC')->paginate(10);
         return view('kuitansi/index',compact('semua_kuitansi'));
     }
@@ -62,7 +66,14 @@ class KuitansiController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$kuitansi = Kuitansi::findOrFail($id);
+		
+		return view('kuitansi/edit', compact('kuitansi'));
     }
 
     /**
@@ -74,7 +85,17 @@ class KuitansiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$kuitansi = Kuitansi::findOrFail($id);
+		$kuitansi->sudah_terima_dari = $request->sudah_terima_dari;
+		$kuitansi->untuk_pembayaran = $request->untuk_pembayaran;
+		
+		$kuitansi->save();
+		return redirect()->to("kuitansi");
     }
 
     /**
@@ -90,6 +111,11 @@ class KuitansiController extends Controller
 	
 	public function kuitansi_pdf($id)
 	{
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$kuitansi = Kuitansi::findOrFail($id);
 		$pdf = PDF::loadview('kuitansi/kuitansi_pdf',['kuitansi'=>$kuitansi])
                 ->setPaper('legal');

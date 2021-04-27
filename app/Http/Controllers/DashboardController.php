@@ -17,7 +17,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$jml_pegawai = count(Pegawai::All());
         $jml_nodin = count(NotaDinas::All());
         $jml_surattugas = count(SuratTugas::All());

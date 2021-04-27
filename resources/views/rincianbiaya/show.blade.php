@@ -28,7 +28,7 @@
                     <th>Perincian Biaya</th>
 					<th>Jumlah</th>
 					<th>Keterangan</th>
-					<th></th>
+					<!--th></th-->
                     
                 </tr>
             </thead>
@@ -40,11 +40,11 @@
                     <td> {{$rb->biaya}}</td>
                     <td> Rp. {{$rb->jumlah}},- </td>
 					<td> {{$rb->keterangan}} </td>
-					<td> <!-- a href="{{url("/rincianbiaya/$rb->id/delete")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: black'></i></a -->
+					<!--td> <a href="{{url("/rincianbiaya/$rb->id/delete")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: black'></i></a>
 						<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalSaya">
 							<i class='fa fa-trash' style='color: black'></i>
 						</button>
-					</td>
+					</td-->
                     
                 </tr>
                 @endforeach
@@ -58,7 +58,7 @@
 		<hr>
     </div>
 	
-	<!-- contoh modal -->
+	<!-- contoh modal Hapus Data -->
 <div class="modal fade" id="modalSaya" tabindex="-1" role="dialog" aria-labelledby="modalSayaLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -84,6 +84,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <input type="submit" value="Ya hapus" class="btn btn-danger">
 		</center>
+		<br/>
       <!--/div-->
 	  </form>
     </div>

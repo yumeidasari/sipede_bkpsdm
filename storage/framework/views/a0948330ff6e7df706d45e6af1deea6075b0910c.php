@@ -16,7 +16,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor Surat Tugas</th>
 					<th>Dasar Penugasan</th>
 					<th>Nama Pegawai</th>
@@ -26,9 +26,10 @@
                 </tr>
             </thead>
             <tbody>
+				<?php $i=1 ?>
                 <?php $__currentLoopData = $semua_surattugas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $st): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($st->id); ?></td>
+                    <td> <?php echo e($i++); ?></td>
                     <td> <?php echo e($st->st_nomor); ?> </td>
 					<td> <?php echo e($st->st_dasar_penugasan); ?> </td>
 					<td> <?php echo e($st->pegawai->nama_pegawai); ?> </td>
@@ -38,7 +39,9 @@
                        <!-- <a href="<?php echo e(url("/surattugas/$st->id/edit")); ?>" class="btn btn-info btn-sm">edit </a> -->
                        <!-- <a href="<?php echo e(url("/surattugas/$st->id")); ?>" class="btn btn-info btn-sm">view </a> -->
 						<a href="<?php echo e(url("surattugas/$st->id/surattugas_pdf")); ?>" class="btn btn-danger btn-sm custom" target='_BLANK' > Export to PDF </a><br>
+						
 						<a href="<?php echo e(url("/spd/$st->id/create")); ?>" class="btn btn-secondary btn-sm custom" > Buat SPD </a><br>
+							
 						<!--a href="<?php echo e(url("/berkas/$st->id/create")); ?>" class="btn btn-info btn-sm custom" > Upload Berkas </a-->
 						
                     </td>

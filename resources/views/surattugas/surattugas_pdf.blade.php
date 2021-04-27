@@ -31,48 +31,122 @@
             </td>
         </tr>
     </table>
-    
+    <br>
     <table align="center" width="700px" >
         <tr>
-            <td >
+            <td width="200px">
                 <!--p align="justify"><span style="padding-left:40px;">
                 Diterbitkan berdasarkan Peraturan Menteri Kelautan dan Perikanan Nomor PER.27/MEN/2009 
                 dan Keputusan Direktur Jenderal Perikanan Tangkap Nomor 36/DJ-PT/201. <br></span>
                 <br>-->
-                
-                <br><font size="4"><span >Dasar Penugasan</span><span style="padding-left:79px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->st_dasar_penugasan}}</span>
-					
-				<br>	
-				<br><span ><center>MEMERINTAHKAN</center></span>
-				<br>
-               <br><span >Kepada</span><span style="padding-left:150px;">:</span>
-					<span style="padding-left:15px;">Nama</span>
-					<span style="padding-left:65px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->pegawai->nama_pegawai}}</span>
-					
-				<br><span style="padding-left:231px;">Pangkat/Gol</span>
-					<span style="padding-left:17px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->pegawai->golongan->golongan}}</span>
+               <font size="4"> Dasar Penugasan</font>
 				
-				<br><span style="padding-left:231px;">NIP</span>
-					<span style="padding-left:80px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->pegawai->nip}}</span>
-					
-				<br><span style="padding-left:231px;">Jabatan</span>
-					<span style="padding-left:54px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->pegawai->jabatan->jabatan}}</span>
-				<br>	
-                <br><span >Untuk</span><span style="padding-left:160px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->st_alasan_penugasan}}</span>
-				<br>
-				<br><span >Lama Pelaksanaan Tugas</span><span style="padding-left:17px;">:</span>
-					<span style="padding-left:15px;">{{$surattugas->st_lama_tugas}} hari</span>
-				</font>
-                
             </td>
+			
+			<td width="50px">
+				<font size="4">:</font>
+			</td>
+			
+			<td width="450px">
+				<font size="4">{{$surattugas->st_dasar_penugasan}}</font>
+			</td>
             
         </tr>
+		
+		<tr>
+			<td colspan="3">
+			<br>
+				<center><font size="4">MEMERINTAHKAN</font></center>
+			<br>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="200px">
+				<font size="4">Kepada</font>
+			</td>
+			<td width="50px">
+				<font size="4">:</font>
+			</td>
+			
+			<td width="450px">
+				<table align="center" width="450px" >
+					<tr>
+						<td width="100px">
+							<font size="4">Nama</font>
+						</td>
+						<td width="50px">
+							<font size="4">:</font>
+						</td>
+						<td width="300px">
+							<font size="4">{{$surattugas->pegawai->nama_pegawai}}</font>
+						</td>
+					</tr>
+						
+					<tr>
+						<td width="100px">
+							<font size="4">Pangkat/Gol</font>
+						</td>
+						<td width="50px">
+							<font size="4">:</font>
+						</td>
+						<td width="300px">
+							<font size="4">{{$surattugas->pegawai->golongan->golongan}}</font>
+						</td>
+					</tr>
+					
+					<tr>
+						<td width="100px">
+							<font size="4">NIP</font>
+						</td>
+						<td width="50px">
+							<font size="4">:</font>
+						</td>
+						<td width="300px">
+							<font size="4">{{$surattugas->pegawai->nip}}</font>
+						</td>
+					</tr>
+					
+					<tr>
+						<td width="100px">
+							<font size="4">Jabatan</font>
+						</td>
+						<td width="50px">
+							<font size="4">:</font>
+						</td>
+						<td width="300px">
+							<font size="4">{{$surattugas->pegawai->jabatan->jabatan}}</font>
+							
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="200px">
+				<font size="4">Untuk</font>
+			</td>
+			<td width="50px">
+				<font size="4">:</font>
+			</td>
+			<td width="450px">
+			<br>
+				<font size="4">{{$surattugas->st_alasan_penugasan}}</font>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="200px">
+				<font size="4">Lama Pelaksanaan Tugas</font>
+			</td>
+			<td width="50px">
+				<font size="4">:</font>
+			</td>
+			<td width="450px">
+				<font size="4">{{$surattugas->st_lama_tugas}} hari</font>
+			</td>
+		</tr>
 	  
     </table>
 	<br>
@@ -102,19 +176,21 @@
                 </table-->
             </td>
             <td>
-			
-                
-                  <p><font size="4"><span><center>Terhitung tanggal {{Carbon\Carbon::parse($surattugas->st_tgl_awal)->format('d F Y')}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </center></span>
-					<br><span>Ditetapkan di : {{$surattugas->st_tempat_penetapan}}</span>  
-					<br><span>pada tanggal</span><span style="padding-left:11px;">: {{Carbon\Carbon::parse($surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
-					<br><span>BUPATI BELITUNG TIMUR/KETUA DPRD/KEPALA PD*)</span>
+					<br>
+					<br>
+                  <p><font size="4"><span style="padding-left:50px;">Terhitung tanggal {{Carbon\Carbon::parse($surattugas->st_tgl_awal)->format('d F Y')}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </span>
+					<br><span style="padding-left:50px;">Ditetapkan di : {{$surattugas->st_tempat_penetapan}}</span>  
+					<br><span style="padding-left:50px;">Pada tanggal</span><span style="padding-left:11px;">: {{Carbon\Carbon::parse($surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
+					
+					<br>
+					<br><span><center>{{$surattugas->penandatangan->jabatan->jabatan}},</center></span>
                     <br>
                     <br> 
                     <br>
                     <br> 
                     <span><center> <b><u>{{$surattugas->penandatangan->nama_pegawai}}</u></b></center></span>  
                      
-                    <span><center> <b>Pangkat </b></center></span> 
+                    <span><center> <b>{{$surattugas->penandatangan->golongan->pangkat}} </b></center></span> 
                     
                     <span><center><b>NIP.{{$surattugas->penandatangan->nip}}</b></center></span>
 					</font>
@@ -125,7 +201,7 @@
 		<tr>
 			<td>
 				<BR>
-				<BR>*)Coret yang tidak perlu
+				<BR>
 			</td>
 		</tr>
     </table>

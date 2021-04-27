@@ -21,8 +21,10 @@
                     <td> <?php echo e($i++); ?></td>
                     <td> <?php echo e($opd->nama_opd); ?> </td>
                     <td>
-                        <a href="<?php echo e(url("/opd/$opd->id/edit")); ?>" class="btn btn-info btn-sm">edit </a>
-                        <a href="<?php echo e(url("/opd/$opd->id")); ?>" class="btn btn-info btn-sm">view </a>
+                        <a href="<?php echo e(url("/opd/$opd->id/edit")); ?>" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+						<a href="<?php echo e(url("/opd/$opd->id")); ?>" class="btn btn-primary btn-sm" title='View'><i class='fa fa-file' style='color: white'></i></a>
+                        <!-- a href="<?php echo e(url("/opd/$opd->id/delete")); ?>" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a-->
+                       
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -26,10 +26,10 @@
 
                 {{ csrf_field() }}
 
-                <div class="form-group">
+                <!-- div class="form-group">
                     <label> Kode OPD </label>
                     <input type="text" class="form-control" name="kode" />
-                </div>
+                </div -->
 
                 <div class="form-group">
                     <label for="">Nama OPD</label>
@@ -37,7 +37,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="{{url('/opd')}}" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>

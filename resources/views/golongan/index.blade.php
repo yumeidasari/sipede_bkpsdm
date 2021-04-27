@@ -26,8 +26,10 @@
                     <td> {{$golongan->golongan}} </td>
 					<td> {{$golongan->pangkat}} </td>
                     <td>
-                        <a href="{{url("/golongan/$golongan->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        
+                        <a href="{{url("/golongan/$golongan->id/edit")}}" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+						<a href="{{url("/golongan/$golongan->id")}}" class="btn btn-primary btn-sm" title='View'><i class='fa fa-file' style='color: white'></i></a>
+                        <!--a href="{{url("/golongan/$golongan->id/delete")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a-->
+                       
                     </td>
                 </tr>
                 @endforeach

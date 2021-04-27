@@ -13,6 +13,7 @@
                 <tr>
                     <th>No. </th>
                     <th>Nomor SPD</th>
+					<th>Nomor Surat Tugas</th>
 					<th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Nama PPK</th>
@@ -25,6 +26,7 @@
                 <tr>
                     <td> {{$i++}}</td>
                     <td> {{$spd->spd_nomor}} </td>
+					<td> {{$spd->surattugas->st_nomor}} </td>
 					<td> {{$spd->pegawai->nama_pegawai}} </td>
 					<td> {{$spd->pegawai->nip}} </td>
 					<td> {{$spd->pegawai->nama_pegawai}} </td>

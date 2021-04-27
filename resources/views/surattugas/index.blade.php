@@ -42,7 +42,9 @@
                        <!-- <a href="{{url("/surattugas/$st->id/edit")}}" class="btn btn-info btn-sm">edit </a> -->
                        <!-- <a href="{{url("/surattugas/$st->id")}}" class="btn btn-info btn-sm">view </a> -->
 						<a href="{{url("surattugas/$st->id/surattugas_pdf") }}" class="btn btn-danger btn-sm custom" target='_BLANK' > Export to PDF </a><br>
+						
 						<a href="{{url("/spd/$st->id/create")}}" class="btn btn-secondary btn-sm custom" > Buat SPD </a><br>
+							
 						<!--a href="{{url("/berkas/$st->id/create")}}" class="btn btn-info btn-sm custom" > Upload Berkas </a-->
 						
                     </td>

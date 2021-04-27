@@ -15,7 +15,11 @@ class BerkasController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$semua_berkas = Berkas::orderBy('id','DESC')->paginate(10);
         return view('berkas/index',compact('semua_berkas'));
     }
@@ -27,7 +31,11 @@ class BerkasController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$surattugas = SuratTugas::all();
 		return view('berkas/create', compact('surattugas'));
     }
@@ -40,7 +48,11 @@ class BerkasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$berkas_baru = new Berkas;
 		$berkas_baru->surattugas_id = $request->surattugas_id;
 		
@@ -92,7 +104,11 @@ class BerkasController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$berkas = Berkas::findOrFail($id);
 		$surattugas = SuratTugas::all();
 		return view('berkas/edit', compact('berkas','surattugas'));
@@ -107,7 +123,11 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$berkas = Berkas::findOrFail($id);
 		if ($request->hasFile('scan_nodin')) {
 

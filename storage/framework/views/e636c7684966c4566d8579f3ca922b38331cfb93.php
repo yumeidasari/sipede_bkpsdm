@@ -8,8 +8,9 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID </th>
+                    <th>No. </th>
                     <th>Nomor SPD</th>
+					<th>Nomor Surat Tugas</th>
 					<th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Nama PPK</th>
@@ -17,10 +18,12 @@
                 </tr>
             </thead>
             <tbody>
+				<?php $i=1 ?>
                 <?php $__currentLoopData = $semua_spd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spd): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td> <?php echo e($spd->id); ?></td>
+                    <td> <?php echo e($i++); ?></td>
                     <td> <?php echo e($spd->spd_nomor); ?> </td>
+					<td> <?php echo e($spd->surattugas->st_nomor); ?> </td>
 					<td> <?php echo e($spd->pegawai->nama_pegawai); ?> </td>
 					<td> <?php echo e($spd->pegawai->nip); ?> </td>
 					<td> <?php echo e($spd->pegawai->nama_pegawai); ?> </td>

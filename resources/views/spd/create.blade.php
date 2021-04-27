@@ -30,7 +30,7 @@
                     <input type="text"  name="spd_surattugas_id" value="{{$surattugas->id}}" class="form-control" hidden>
                 </div>
 				
-                <div class="form-group">
+                <!-- div class="form-group">
                     <label>SKPD/Unit Kerja</label>
                     <select name="spd_opd_id" class="form-control">
                         <option value="">Pilih Unit Kerja</option>
@@ -38,7 +38,7 @@
                             <option value="{{$o->id_opd}}"> {{$o->nama_opd}} </option>
                         @endforeach
                     </select>
-                </div>
+                </div -->
 				
 				<div class="form-group">
                     <label for="">Lembar Ke</label>
@@ -81,8 +81,13 @@
                 </div>
 				
 				<div class="form-group">
-                    <label for="">Alat Angkutan </label>
-                    <input type="text" name="spd_alat_angkut" class="form-control">
+                    <label>Alat Angkutan/Transportasi</label>
+                    <select name="spd_transportasi_id" class="form-control">
+                        <option value="">Pilih Alat Angkut</option>
+                        @foreach($transportasi as $t)
+                            <option value="{{$t->id}}"> {{$t->alat_transportasi}}</option>
+                        @endforeach
+                    </select>
                 </div>
 				
 				<div class="form-group">
@@ -91,17 +96,22 @@
                 </div>
 				
 				<div class="form-group">
-                    <label for="">Tempat Tujuan </label>
-                    <input type="text" name="spd_tempat_tujuan" class="form-control">
+                    <label>Tempat Tujuan</label>
+                    <select name="spd_kota_tujuan_id" class="form-control">
+                        <option value="">Pilih Tujuan</option>
+                        @foreach($kota as $kota)
+                            <option value="{{$kota->id}}"> {{$kota->nama_kota}}</option>
+                        @endforeach
+                    </select>
                 </div>
-			
+				
 				<div class="form-group">
-                    <label for="">Data Anggaran Pengeluaran </label>
+                    <label for="">Akun/Kode Rekening Anggaran </label>
                     <input type="text" name="spd_anggaran_id" class="form-control">
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="{{url('/surattugas')}}" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>

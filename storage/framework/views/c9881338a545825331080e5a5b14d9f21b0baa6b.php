@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 </head>
     <div class="container pt-3">
@@ -94,7 +94,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="<?php echo e(url('/surattugas')); ?>" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>
@@ -104,14 +104,12 @@
             autoclose: true   
               
          });  
-    </script>
-	<script type="text/javascript">  
+     
         $('#datepicker2').datepicker({ 
             autoclose: true   
               
          });  
-    </script>
-	<script type="text/javascript">  
+      
         $('#datepicker3').datepicker({ 
             autoclose: true   
               
