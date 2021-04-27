@@ -8,6 +8,9 @@ use App\Pegawai;
 use App\Opd;
 use Carbon\Carbon;
 use App\Berkas;
+use App\AlatTransportasi;
+use App\Kota;
+use App\SuratPerjalananDinas;
 use PDF;
 
 class SuratTugasController extends Controller
@@ -19,9 +22,13 @@ class SuratTugasController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$pegawai = Pegawai::all();
 		$semua_surattugas = SuratTugas::orderBy('id','DESC')->paginate(10);
+		
         return view('surattugas/index',compact('semua_surattugas','pegawai'));
 		
     }
@@ -33,7 +40,10 @@ class SuratTugasController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		
         $pegawai = Pegawai::all();
 
@@ -48,7 +58,10 @@ class SuratTugasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$st_baru = new SuratTugas;
         $st_baru->st_nomor = $request->st_nomor;
         $st_baru->st_dasar_penugasan = $request->st_dasar_penugasan;
@@ -118,7 +131,10 @@ class SuratTugasController extends Controller
 	
 	public function surattugas_pdf($id)
     {       
-		
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$surattugas = SuratTugas::findOrFail($id);
 		$pegawai = Pegawai::all();
 		$pdf = PDF::loadview('surattugas/surattugas_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
@@ -131,15 +147,25 @@ class SuratTugasController extends Controller
 	
 	public function buat_spd($id)
 	{
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$surattugas = SuratTugas::findOrFail($id);
 		$pegawai = Pegawai::all();
 		$opd = Opd::all();
+		$transportasi = AlatTransportasi::all();
+		$kota = Kota::all();
 		//$surattugas = SuratTugas::all();
-        return view('spd/create', compact('pegawai','opd','surattugas'));
+        return view('spd/create', compact('pegawai','opd','surattugas','transportasi','kota'));
 	}
 	
 	public function upload_berkas($id)
 	{
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$surattugas = SuratTugas::findOrFail($id);
 		
         return view('berkas/create', compact('surattugas'));

@@ -14,7 +14,11 @@ class GolonganController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$semua_golongan=Golongan::orderBy('id','DESC')->paginate(10);
         return view('golongan/index',compact('semua_golongan'));
     }
@@ -26,7 +30,11 @@ class GolonganController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		return view('golongan/create');
     }
 
@@ -38,7 +46,11 @@ class GolonganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$golongan_baru = new Golongan;
         $golongan_baru->golongan = $request->golongan;
 		$golongan_baru->pangkat = $request->pangkat;
@@ -56,7 +68,13 @@ class GolonganController extends Controller
      */
     public function show($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$golongan = Golongan::findOrFail($id);
+		return view('golongan/show', compact('golongan'));
     }
 
     /**
@@ -67,7 +85,13 @@ class GolonganController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$golongan = Golongan::findOrFail($id);
+		return view('golongan/edit', compact('golongan'));
     }
 
     /**
@@ -79,7 +103,30 @@ class GolonganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$golongan = Golongan::findOrFail($id);
+		$golongan->golongan = $request->golongan;
+		$golongan->pangkat = $request->pangkat;
+		
+		$golongan->save();
+		return redirect()->to("golongan");
+    }
+	
+	public function delete($id)
+    {
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+        $golongan = Golongan::findOrFail($id);
+
+
+          return view('golongan/delete', compact('golongan'));
     }
 
     /**
@@ -90,6 +137,14 @@ class GolonganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$golongan = Golongan::findOrFail($id);
+		$golongan->delete();
+		//return response()->json(['data' => $pegawai]);
+		return redirect()->to("golongan");
     }
 }

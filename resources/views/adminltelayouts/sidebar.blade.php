@@ -94,6 +94,13 @@
                 </a>
               </li>
 			  
+			  <li class="nav-item">
+                <a href="{{ url('kota') }}" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Kota</p>
+                </a>
+              </li>
+			  
             </ul>
           </li>
 

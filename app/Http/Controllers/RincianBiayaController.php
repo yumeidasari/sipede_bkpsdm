@@ -19,7 +19,10 @@ class RincianBiayaController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$semua_spd=SuratPerjalananDinas::orderBy('id','DESC')->paginate(10);
         return view('rincianbiaya/index',compact('semua_spd'));
     }
@@ -32,7 +35,10 @@ class RincianBiayaController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		return view('rincianbiaya/create');
     }
 
@@ -44,7 +50,10 @@ class RincianBiayaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$total = count($request->spd_id);
 		
 		$spd_id = $request->spd_id;
@@ -65,7 +74,7 @@ class RincianBiayaController extends Controller
 			
 		}
 		//return response()->json(['data' => $rincianbiaya_baru]);
-		return redirect()->to('/spd')->with('message', 'Berhasil Membuat Rincian Biaya Perjalanan Dinas');
+		return redirect()->to('/rincianbiaya')->with('message', 'Berhasil Membuat Rincian Biaya Perjalanan Dinas');
     }
 
     /**
@@ -76,7 +85,10 @@ class RincianBiayaController extends Controller
      */
     public function show($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$spd = SuratPerjalananDinas::findOrFail($id);
 		$semua_rincianbiaya = DB::table('hys_rincian_biaya')
 						->join('ref_rincian_biaya', 'hys_rincian_biaya.ref_rincian_biaya_id', '=', 'ref_rincian_biaya.id')
@@ -85,8 +97,18 @@ class RincianBiayaController extends Controller
                         ->orderby('hys_rincian_biaya.id','desc')
 						->get();
                         
-		//$biaya = Biaya::all();
-        return view('rincianbiaya/show', compact('spd', 'semua_rincianbiaya'));
+		$biaya = Biaya::all();
+		$total_rincian = count($semua_rincianbiaya);
+		if($total_rincian != 0)
+		{
+			return view('rincianbiaya/show', compact('spd', 'semua_rincianbiaya'));
+		}
+		else
+		{
+			
+			return view('rincianbiaya/create', compact('spd', 'biaya'));
+			
+		}
     }
 
     /**
@@ -120,13 +142,22 @@ class RincianBiayaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		 $rincianbiaya = RincianBiaya::findOrFail($id);
 		 $rincianbiaya->delete();
+		 
+		 //show($rincianbiaya->spd->id);
     }
 	
 	public function rincianbiaya_pdf($id)
     {       
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		
 		$spd = SuratPerjalananDinas::findOrFail($id);
 		$semua_rincianbiaya = DB::table('hys_rincian_biaya')

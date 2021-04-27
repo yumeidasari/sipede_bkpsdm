@@ -25,4 +25,14 @@ class SuratPerjalananDinas extends Model
     {
         return $this->belongsTo('App\SuratTugas', 'spd_surattugas_id');
     }
+	
+	public function transportasi()
+    {
+        return $this->belongsTo('App\AlatTransportasi', 'spd_transportasi_id');
+    }
+	
+	public function kota()
+    {
+        return $this->belongsTo('App\Kota', 'spd_kota_tujuan_id');
+    }
 }

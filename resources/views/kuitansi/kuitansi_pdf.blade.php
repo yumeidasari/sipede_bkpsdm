@@ -158,10 +158,11 @@
 			</td>
 			
 			<td width="5px">
-			:
+			: 
 			</td>
 			
 			<td width="495px">
+				{{$kuitansi->spd->spd_tempat_berangkat}} ke {{$kuitansi->spd->spd_tempat_tujuan}}
 			</td>
         </tr>
 		</tr>

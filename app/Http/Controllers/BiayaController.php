@@ -14,7 +14,11 @@ class BiayaController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$semua_biaya=Biaya::orderBy('id','DESC')->paginate(10);
         return view('biaya/index',compact('semua_biaya'));
     }
@@ -26,7 +30,12 @@ class BiayaController extends Controller
      */
     public function create()
     {
-        //
+        
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		return view('biaya/create');
     }
 
@@ -38,7 +47,11 @@ class BiayaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$biaya_baru = new Biaya;
         $biaya_baru->biaya = $request->biaya;
    
@@ -55,7 +68,13 @@ class BiayaController extends Controller
      */
     public function show($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$biaya = Biaya::findOrFail($id);
+		return view('biaya/show', compact('biaya'));
     }
 
     /**
@@ -66,7 +85,13 @@ class BiayaController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$biaya = Biaya::findOrFail($id);
+		return view('biaya/edit', compact('biaya'));
     }
 
     /**
@@ -78,7 +103,15 @@ class BiayaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$biaya = Biaya::findOrFail($id);
+		$biaya->biaya = $request->biaya;
+		$biaya->save();
+		return redirect()->to("biaya");
     }
 
     /**
@@ -87,8 +120,30 @@ class BiayaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+	 
+	public function delete($id)
+    {
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+        $biaya = Biaya::findOrFail($id);
+
+
+          return view('biaya/delete', compact('biaya'));
+    }
+	
     public function destroy($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$biaya = Biaya::findOrFail($id);
+		$biaya->delete();
+		//return response()->json(['data' => $pegawai]);
+		return redirect()->to("biaya");
     }
 }

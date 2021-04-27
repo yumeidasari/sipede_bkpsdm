@@ -14,7 +14,11 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$semua_jabatan=Jabatan::orderBy('id','DESC')->paginate(10);
         return view('jabatan/index',compact('semua_jabatan'));
     }
@@ -26,7 +30,11 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		return view('jabatan/create');
     }
 
@@ -38,7 +46,11 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$jabatan_baru = new Jabatan;
         $jabatan_baru->jabatan = $request->jabatan;
    
@@ -55,7 +67,13 @@ class JabatanController extends Controller
      */
     public function show($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$jabatan = Jabatan::findOrFail($id);
+		return view('jabatan/show', compact('jabatan'));
     }
 
     /**
@@ -66,7 +84,13 @@ class JabatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$jabatan = Jabatan::findOrFail($id);
+		return view('jabatan/edit', compact('jabatan'));
     }
 
     /**
@@ -78,8 +102,29 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$jabatan = Jabatan::findOrFail($id);
+		$jabatan->jabatan = $request->jabatan;
+		$jabatan->save();
+		return redirect()->to("jabatan");
     }
+	
+	public function delete($id)
+    {
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+        $jabatan = Jabatan::findOrFail($id);
+
+
+          return view('jabatan/delete', compact('jabatan'));
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,6 +134,13 @@ class JabatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		$jabatan = Jabatan::findOrFail($id);
+		$jabatan->delete();
+		//return response()->json(['data' => $pegawai]);
+		return redirect()->to("jabatan");
     }
 }

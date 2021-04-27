@@ -23,11 +23,11 @@
                 <tr>
                     <td> {{$i++}}</td>
                     <td> {{$k->spd->spd_nomor}} </td>
-					<td> {{$k->tujuan_pembayaran}} </td>
+					<td> {{$k->untuk_pembayaran}} </td>
 					<td> Rp. {{rupiah($k->jumlah)}} </td>
 					<td>
-                        <a href="{{url("/kuitansi/$k->id/edit")}}" class="btn btn-info btn-sm">edit </a>
-                        <a href="{{url("/kuitansi/$k->id")}}" class="btn btn-info btn-sm">view </a>
+                        <a href="{{url("/kuitansi/$k->id/edit")}}" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+                        <!-- a href="{{url("/kuitansi/$k->id")}}" class="btn btn-info btn-sm">view </a -->
 						<a href="{{url("kuitansi/$k->id/kuitansi_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
                     </td>
                 </tr>

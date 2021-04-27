@@ -2,7 +2,7 @@
 <html>
 <head>
     
-	<title>Data Nota Dinas</title>
+	<title>Surat Perjalanan Dinas</title>
 	<link rel="shortcut icon" type="image/png" href="{{ asset('/storage/img/logo-beltim.png') }}">
 </head>
 
@@ -114,7 +114,7 @@
 				<font size="4">Alat angkutan yang dipergunakan</font>
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->spd_alat_angkut}}</font>
+				<font size="4">{{$spd->transportasi->alat_transportasi}}</font>
 			</td>
 		</tr>
 		
@@ -127,7 +127,7 @@
 			</td>
 			<td width="350px" colspan="2">
 				<font size="4">a. {{$spd->spd_tempat_berangkat}}
-								<BR>b. {{$spd->spd_tempat_tujuan}}</font>
+								<BR>b. {{$spd->kota->nama_kota}}</font>
 			</td>
 		</tr>
 		
@@ -246,23 +246,23 @@
 				<font size="4">
 				<span style="padding-left:15px;">I.</span>
 				<span style="padding-left:10px;">Berangkat dari</span>
-				<span style="padding-left:5px;">: .............</span>
+				<span style="padding-left:5px;">: {{$spd->spd_tempat_berangkat}}</span>
 				<BR>
 				<span style="padding-left:40px;">(Tempat Kedudukan)</span>
 				<BR>
 				<span style="padding-left:40px;">Ke</span>
-				<span style="padding-left:95px;">: .............</span>
+				<span style="padding-left:95px;">: {{$spd->kota->nama_kota}}</span>
 				<BR>
 				<span style="padding-left:40px;">Pada Tanggal</span>
-				<span style="padding-left:15px;">: .............</span>
+				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}}</span>
 				<BR>
-				<span style="padding-left:40px;">Kepala</span>
-				<span style="padding-left:65px;">: .............</span>
+				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
+				
 				<BR><BR>
 				<BR>
-				<span style="padding-left:40px;">(.....................................)</span>
-				<BR>
-				<span style="padding-left:40px;">NIP ...................................</span>
+				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				
+				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
 				
 				</font>
 			</td>
@@ -398,35 +398,37 @@
 				<font size="4">
 				<span style="padding-left:15px;">V.</span>
 				<span style="padding-left:4px;">Tiba di</span>
-				<span style="padding-left:63px;">: .............</span>
+				<span style="padding-left:63px;">: {{$spd->spd_tempat_berangkat}}</span>
 				<BR>
 				<span style="padding-left:40px;">(Tempat Kedudukan)</span>
 				<BR>
 				<BR>
 				<span style="padding-left:40px;">Pada Tanggal</span>
-				<span style="padding-left:15px;">: .............</span>
+				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}</span>
 				<BR>
-				<span style="padding-left:40px;">(.....................................)</span>
-				<BR><BR><BR>
 				<BR>
-				<span style="padding-left:40px;">(.....................................)</span>
+				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
 				<BR>
-				<span style="padding-left:40px;">NIP ...................................</span>
+				<BR>
+				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				
+				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
 				
 				</font>
 			</td>
 			<td width="350px">
-				
 				<p align="justify"><font size="4">
 					Telah diperiksa dengan keterangan bahwa perjalanan tersebut atas perintahnya
 					dan semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya
 				</font>
 				</p>				
-				<center><font size="4">PPK / PA / KPA,*)</font></center>
+				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
+				
 				<BR>
 				<BR>
-				<center><font size="4">(..............................)</font></center>
-				<center><font size="4">NIP..............................)</font></center>
+				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				
+				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
 				
 			</td>
 		</tr>

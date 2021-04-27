@@ -17,7 +17,11 @@ class NotaDinasController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$pegawai = Pegawai::all();
 		$semua_notadinas = NotaDinas::orderBy('id','DESC')->paginate(10);
         return view('notadinas/index',compact('semua_notadinas','pegawai'));
@@ -30,7 +34,11 @@ class NotaDinasController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$pegawai = Pegawai::all();
 
         return view('notadinas/create', compact('pegawai'));
@@ -44,7 +52,11 @@ class NotaDinasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
 		$nd_baru = new NotaDinas;
         $nd_baru->nd_kepada = $request->nd_kepada;
         $nd_baru->nd_dari = $request->nd_dari;
@@ -110,26 +122,10 @@ class NotaDinasController extends Controller
 	
 	public function nodin_pdf($id)
     {
-        /*
-        $kapal = Kapal::findOrFail($id);
-        $relkapal = RelKapal::all();
-        $instansi = MsInstansi::findOrFail(1);
-
-        $pemilik = MsKependudukan::findOrFail($kapal->id_pemilik);
-
-        for($i=0; $i<count($relkapal); $i++)
-        {
-            if($relkapal[$i]->id_kapal_perikanan == $kapal->id)
-            {
-                $relasi = $relkapal[$i];
-                $pdf = PDF::loadview('kapal/kapal_pdf',['kapal'=>$kapal, 'relasi'=>$relasi, 'instansi'=>$instansi, 'pemilik'=>$pemilik])
-                ->setPaper('legal');
-
-                return $pdf->stream();
-                break;
-            }
+       //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
         }
-		*/
 		
 		$nodin = NotaDinas::findOrFail($id);
 		$pegawai = Pegawai::all();

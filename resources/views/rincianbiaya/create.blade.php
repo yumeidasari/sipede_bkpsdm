@@ -5,7 +5,7 @@
         <!--div class="col-md-6 offset-md-3"-->
 		<h3><center>Buat Data Rincian Biaya Perjalanan Dinas</center></h3>
                     <hr>
-                    <br>
+                    
             @if(Session::has('message'))
                 <div class="alert alert-success">
                     {{ Session::get('message')}}
@@ -24,6 +24,20 @@
 			
 			<!-- membuat form  -->
 			<!-- gunakan tanda [] untuk menampung array  -->
+			<form>
+			<div class="form-group">
+                    <label for="">Lampiran SPD Nomor <span style="padding-left:10px;">:</span>
+					<span style="padding-left:10px;">{{$spd->spd_nomor}}</span></label>
+					<BR>
+					<label for="">Tanggal <span style="padding-left:107px;">:</span> 
+					<span style="padding-left:10px;">{{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
+					</label>
+					<BR>
+					<label for="">Kota Tujuan <span style="padding-left:79px;">:</span>
+					<span style="padding-left:10px;">{{$spd->kota->nama_kota}}</span></label>
+            </div>
+			<hr>
+			</form>
 
             <form action="{{url('/rincianbiaya')}}" method="POST" enctype="multipart/form-data">
 
@@ -77,6 +91,7 @@
 			<!-- end -->
 			
                 <input type="submit" class="btn btn-primary" value="Simpan">
+				<a href="{{url('/rincianbiaya')}}" class="btn btn-primary"> Kembali </a>
 			</form>
 			
 			 <!-- class hide membuat form disembunyikan  -->

@@ -37,7 +37,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="<?php echo e(url('/golongan')); ?>" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>

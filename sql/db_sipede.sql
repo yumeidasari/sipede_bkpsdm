@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2021 at 09:43 AM
+-- Generation Time: Apr 27, 2021 at 09:35 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -58,7 +58,6 @@ CREATE TABLE `hys_rincian_biaya` (
   `spd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 -- --------------------------------------------------------
 
 --
@@ -74,7 +73,6 @@ CREATE TABLE `kuitansi` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -139,6 +137,7 @@ CREATE TABLE `ms_jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
 -- --------------------------------------------------------
 
 --
@@ -148,7 +147,7 @@ CREATE TABLE `ms_jabatan` (
 CREATE TABLE `ms_opd` (
   `id` int(11) NOT NULL,
   `nama_opd` varchar(255) NOT NULL,
-  `kode` varchar(50) NOT NULL,
+  `kode` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -222,6 +221,7 @@ CREATE TABLE `ref_kota` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -244,23 +244,22 @@ CREATE TABLE `ref_rincian_biaya` (
 
 CREATE TABLE `surat_perjalanan_dinas` (
   `id` int(11) NOT NULL,
-  `spd_opd_id` int(11) NOT NULL,
+  `spd_opd_id` int(11) DEFAULT NULL,
   `spd_lembar_ke` varchar(255) NOT NULL,
   `spd_kode` varchar(255) NOT NULL,
   `spd_nomor` varchar(255) NOT NULL,
   `spd_ppk_id` int(11) NOT NULL,
   `spd_pegawai_id` int(11) NOT NULL,
   `spd_maksud` varchar(255) NOT NULL,
-  `spd_alat_angkut` varchar(255) NOT NULL,
+  `spd_transportasi_id` int(11) NOT NULL,
   `spd_tempat_berangkat` varchar(255) NOT NULL,
-  `spd_tempat_tujuan` varchar(255) NOT NULL,
+  `spd_kota_tujuan_id` int(11) NOT NULL,
   `spd_surattugas_id` int(11) NOT NULL,
-  `spd_anggaran_id` int(11) NOT NULL,
+  `spd_anggaran_id` varchar(255) DEFAULT NULL,
   `spd_ket` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -301,6 +300,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$oqYt4z51BtQ8PjWgktfxduz.hJhSV3HYPZzaWlYNns7gQ9OzAQbUS', NULL, '2021-04-26 21:31:24', '2021-04-26 21:31:24');
 
 --
 -- Indexes for dumped tables
@@ -404,13 +410,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `berkas_laporan_spd`
 --
 ALTER TABLE `berkas_laporan_spd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hys_rincian_biaya`
 --
 ALTER TABLE `hys_rincian_biaya`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kuitansi`
@@ -440,13 +446,13 @@ ALTER TABLE `ms_jabatan`
 -- AUTO_INCREMENT for table `ms_opd`
 --
 ALTER TABLE `ms_opd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ms_pegawai`
 --
 ALTER TABLE `ms_pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `nota_dinas`
@@ -464,7 +470,7 @@ ALTER TABLE `ref_alat_transportasi`
 -- AUTO_INCREMENT for table `ref_kota`
 --
 ALTER TABLE `ref_kota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ref_rincian_biaya`
@@ -476,17 +482,17 @@ ALTER TABLE `ref_rincian_biaya`
 -- AUTO_INCREMENT for table `surat_perjalanan_dinas`
 --
 ALTER TABLE `surat_perjalanan_dinas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 

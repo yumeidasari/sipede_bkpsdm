@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Pegawai;
 use App\Jabatan;
 use App\Golongan;
+use App\SuratTugas;
+use App\SuratPerjalananDinas;
 
 class PegawaiController extends Controller
 {
@@ -16,7 +18,10 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$jabatan = Jabatan::all();
         $golongan = Golongan::all();
 		
@@ -31,7 +36,10 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$jabatan = Jabatan::all();
         $golongan = Golongan::all();
 		
@@ -46,7 +54,10 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
 		$pegawai_baru = new Pegawai;
         $pegawai_baru->nama_pegawai = $request->nama_pegawai;
         $pegawai_baru->nip = $request->nip;
@@ -66,7 +77,13 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		$pegawai = Pegawai::findOrFail($id);
+		return view('pegawai/show', compact('pegawai'));
+		
     }
 
     /**
@@ -77,7 +94,15 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		$jabatan = Jabatan::all();
+        $golongan = Golongan::all();
+		$pegawai = Pegawai::findOrFail($id);
+        return view('pegawai/edit', compact('jabatan','golongan','pegawai'));
+		
     }
 
     /**
@@ -89,7 +114,30 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$pegawai = Pegawai::findOrFail($id);
+        $pegawai->nama_pegawai = $request->nama_pegawai;
+        $pegawai->nip = $request->nip;
+        $pegawai->jabatan_id = $request->jabatan_id;
+        $pegawai->golongan_id = $request->golongan_id;
+		
+		$pegawai->save();
+		
+		return redirect()->to("pegawai");
+    }
+	
+	public function delete($id)
+    {
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+        $pegawai = Pegawai::findOrFail($id);
+        return view('pegawai/delete', compact('pegawai'));
     }
 
     /**
@@ -100,6 +148,18 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		//st_pegawai_id, st_penandatangan_id, spd_ppk_id
+		$surattugas = SuratTugas::all();
+		$spd = SuratPerjalananDinas::all();
+        $pegawai = Pegawai::findOrFail($id);
+		
+		
+		//return response()->json(['data' => $pegawai]);
+		$pegawai->delete();
+		return redirect()->to("pegawai");
     }
 }

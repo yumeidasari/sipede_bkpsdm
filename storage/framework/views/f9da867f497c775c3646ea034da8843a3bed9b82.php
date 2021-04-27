@@ -30,7 +30,7 @@
                     <input type="text"  name="spd_surattugas_id" value="<?php echo e($surattugas->id); ?>" class="form-control" hidden>
                 </div>
 				
-                <div class="form-group">
+                <!-- div class="form-group">
                     <label>SKPD/Unit Kerja</label>
                     <select name="spd_opd_id" class="form-control">
                         <option value="">Pilih Unit Kerja</option>
@@ -38,7 +38,7 @@
                             <option value="<?php echo e($o->id_opd); ?>"> <?php echo e($o->nama_opd); ?> </option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
-                </div>
+                </div -->
 				
 				<div class="form-group">
                     <label for="">Lembar Ke</label>
@@ -81,8 +81,13 @@
                 </div>
 				
 				<div class="form-group">
-                    <label for="">Alat Angkutan </label>
-                    <input type="text" name="spd_alat_angkut" class="form-control">
+                    <label>Alat Angkutan/Transportasi</label>
+                    <select name="spd_transportasi_id" class="form-control">
+                        <option value="">Pilih Alat Angkut</option>
+                        <?php $__currentLoopData = $transportasi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($t->id); ?>"> <?php echo e($t->alat_transportasi); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
                 </div>
 				
 				<div class="form-group">
@@ -91,17 +96,22 @@
                 </div>
 				
 				<div class="form-group">
-                    <label for="">Tempat Tujuan </label>
-                    <input type="text" name="spd_tempat_tujuan" class="form-control">
+                    <label>Tempat Tujuan</label>
+                    <select name="spd_kota_tujuan_id" class="form-control">
+                        <option value="">Pilih Tujuan</option>
+                        <?php $__currentLoopData = $kota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kota): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($kota->id); ?>"> <?php echo e($kota->nama_kota); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
                 </div>
-			
+				
 				<div class="form-group">
-                    <label for="">Data Anggaran Pengeluaran </label>
+                    <label for="">Akun/Kode Rekening Anggaran </label>
                     <input type="text" name="spd_anggaran_id" class="form-control">
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="<?php echo e(url('/surattugas')); ?>" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>

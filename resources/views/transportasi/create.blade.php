@@ -33,7 +33,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
-
+				<a href="{{url('/transportasi')}}" class="btn btn-primary"> Kembali </a>
 
             </form>
         </div>
