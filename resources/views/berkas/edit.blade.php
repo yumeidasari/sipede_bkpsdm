@@ -121,6 +121,21 @@
                             @endif
                      </div>
                 </div>
+				
+				<div class="col">
+                     <div class="form-group">
+                          <label for=""><b>File Scan Laporan SPD</b></label>
+                          <input type="file" name="scan_laporan_spd" class="form-control">
+							@if(isset($berkas->scan_laporan_spd))
+                                <a href="{{asset("/storage/$berkas->scan_laporan_spd")}}" target='_BLANK'>
+									<img  src="{{asset('/storage/img/Adobe-PDF-Document-icon.png')}}">
+									Unduh
+								</a>
+                            @else
+                                -
+                            @endif
+                     </div>
+                </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
 				<a href="{{url('/berkas')}}" class="btn btn-primary"> Kembali </a>

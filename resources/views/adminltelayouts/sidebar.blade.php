@@ -28,7 +28,8 @@
             </a>
             
           </li>
-                    
+       @auth
+		@if(\Gate::allows('PPK'))
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -43,6 +44,13 @@
                 <a href="{{ url('pegawai') }}" class="nav-link">
                   <i class="far fa-circle-o nav-icon"></i>
                   <p>Pegawai</p>
+                </a>
+              </li>
+			  
+			  <li class="nav-item">
+                <a href="{{ url('anggaran') }}" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Anggaran</p>
                 </a>
               </li>
               
@@ -103,7 +111,7 @@
 			  
             </ul>
           </li>
-
+			@endif
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -136,6 +144,7 @@
             </ul>
           </li>
 		  
+		  @if(\Gate::allows('PPK'))
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-plane"></i>
@@ -166,7 +175,8 @@
               </li>
             </ul>
           </li>
-
+		  @endif
+		@endauth
           <li class="nav-item">
            
           </li>

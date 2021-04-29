@@ -7,6 +7,8 @@ use App\Pegawai;
 use App\NotaDinas;
 use App\SuratTugas;
 use App\SuratPerjalananDinas;
+use App\Anggaran;
+use App\Kuitansi;
 
 class DashboardController extends Controller
 {
@@ -23,12 +25,37 @@ class DashboardController extends Controller
         }
 		
 		$jml_pegawai = count(Pegawai::All());
-        $jml_nodin = count(NotaDinas::All());
+        //$jml_nodin = count(NotaDinas::All());
         $jml_surattugas = count(SuratTugas::All());
 		$jml_spd = count(SuratPerjalananDinas::All());
+		$jml_anggaran = count(Anggaran::All());
+		$semua_anggaran = Anggaran::All();
+		
+		if($jml_anggaran != 0){
+		for($i=0; $i<$jml_anggaran; $i++)
+		{
+			$thn_anggaran = $semua_anggaran[$i]->tahun;
+			if( $thn_anggaran == date('Y') )
+			{
+				$sisa_anggaran = $semua_anggaran[$i]->sisa_anggaran;
+				return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+			}
+			else{
+				if($i == $jml_anggaran-1)
+				{
+					$sisa_anggaran = $semua_anggaran[$i]->jml_anggaran;
+					return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+				}
+			}
+		}
+		}
+		else
+		{
+			$sisa_anggaran = 0;
+			return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+		}
 		
         
-        return view('dashboard', compact('jml_pegawai', 'jml_nodin', 'jml_surattugas', 'jml_spd'));
     }
 
     /**

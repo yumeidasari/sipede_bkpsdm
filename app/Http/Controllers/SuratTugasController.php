@@ -73,6 +73,7 @@ class SuratTugasController extends Controller
 		$st_baru->st_tempat_penetapan =$request->st_tempat_penetapan;
 		$st_baru->st_tgl_penetapan = Carbon::create($request->st_tgl_penetapan);
 		$st_baru->st_penanda_tangan_id = $request->st_penanda_tangan_id;
+		$st_baru->st_status = 0;
 		
 		$st_baru->save();
 		
@@ -104,6 +105,16 @@ class SuratTugasController extends Controller
     public function edit($id)
     {
         //
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+        $pegawai = Pegawai::all();
+		$surattugas = SuratTugas::findOrFail($id);
+
+        return view('surattugas/edit', compact('surattugas','pegawai'));
+		
     }
 
     /**
@@ -116,6 +127,30 @@ class SuratTugasController extends Controller
     public function update(Request $request, $id)
     {
         //
+		//harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		$surattugas = SuratTugas::findOrFail($id);
+		
+		
+		$surattugas->st_nomor = $request->st_nomor;
+        $surattugas->st_dasar_penugasan = $request->st_dasar_penugasan;
+        $surattugas->st_pegawai_id_tujuan = $request->st_pegawai_id_tujuan;
+        $surattugas->st_alasan_penugasan = $request->st_alasan_penugasan;
+		$surattugas->st_lama_tugas = $request->st_lama_tugas;
+		$surattugas->st_tgl_awal = Carbon::create($request->st_tgl_awal);
+		$surattugas->st_tgl_akhir = Carbon::create($request->st_tgl_akhir);
+		$surattugas->st_tempat_penetapan =$request->st_tempat_penetapan;
+		$surattugas->st_tgl_penetapan = Carbon::create($request->st_tgl_penetapan);
+		$surattugas->st_penanda_tangan_id = $request->st_penanda_tangan_id;
+		$surattugas->st_status = 0;
+		
+		$surattugas->save();
+		
+		return redirect()->to("surattugas");
+		
+		
     }
 
     /**
@@ -169,5 +204,29 @@ class SuratTugasController extends Controller
 		$surattugas = SuratTugas::findOrFail($id);
 		
         return view('berkas/create', compact('surattugas'));
+	}
+	
+	public function st_confirm_status($id)
+	{
+		if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$surattugas = SuratTugas::findOrFail($id);
+		$surattugas->st_status = 2;
+		$surattugas->save();
+		return redirect()->to("surattugas");
+	}
+	
+	public function st_tolak_status($id)
+	{
+		if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$surattugas = SuratTugas::findOrFail($id);
+		$surattugas->st_status = 1;
+		$surattugas->save();
+		return redirect()->to("surattugas");
 	}
 }

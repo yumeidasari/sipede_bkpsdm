@@ -10,7 +10,7 @@
       <div class="login100-pic js-tilt" data-tilt>
         <img src="images/img-06.png" alt="IMG">
 		<center><font size="6"><b>S I P E D E</b></font></center>
-		<center><font size="2">Sistem Perjalanan Dinas BKPSDM <br>Kabupaten Belitung Timur</font></center>
+		<center><font size="2">Sistem Informasi Perjalanan Dinas</font></center>
       </div>
 	  
       <form class="login100-form validate-form" role="form" method="POST" action="{{ route('login') }}">

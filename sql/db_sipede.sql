@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 09:35 AM
+-- Generation Time: Apr 29, 2021 at 03:24 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -25,6 +25,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `anggaran`
+--
+
+CREATE TABLE `anggaran` (
+  `id` int(11) NOT NULL,
+  `tahun` varchar(4) NOT NULL,
+  `jml_anggaran` int(11) NOT NULL,
+  `jml_realisasi` int(11) DEFAULT NULL,
+  `sisa_anggaran` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `berkas_laporan_spd`
 --
 
@@ -37,6 +53,7 @@ CREATE TABLE `berkas_laporan_spd` (
   `scan_tiket` varchar(255) DEFAULT NULL,
   `scan_boarding_pass` varchar(255) DEFAULT NULL,
   `scan_bill_hotel` varchar(255) DEFAULT NULL,
+  `scan_laporan_spd` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,6 +75,7 @@ CREATE TABLE `hys_rincian_biaya` (
   `spd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +91,7 @@ CREATE TABLE `kuitansi` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -135,7 +154,6 @@ CREATE TABLE `ms_jabatan` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 -- --------------------------------------------------------
@@ -257,9 +275,11 @@ CREATE TABLE `surat_perjalanan_dinas` (
   `spd_surattugas_id` int(11) NOT NULL,
   `spd_anggaran_id` varchar(255) DEFAULT NULL,
   `spd_ket` varchar(255) DEFAULT NULL,
+  `spd_status` int(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -279,6 +299,7 @@ CREATE TABLE `surat_tugas` (
   `st_tempat_penetapan` varchar(255) NOT NULL,
   `st_tgl_penetapan` datetime NOT NULL,
   `st_penanda_tangan_id` int(11) NOT NULL,
+  `st_status` int(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -297,6 +318,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` enum('PU','KUK','PPK') COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -305,12 +327,20 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$oqYt4z51BtQ8PjWgktfxduz.hJhSV3HYPZzaWlYNns7gQ9OzAQbUS', NULL, '2021-04-26 21:31:24', '2021-04-26 21:31:24');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$oqYt4z51BtQ8PjWgktfxduz.hJhSV3HYPZzaWlYNns7gQ9OzAQbUS', NULL, 'PPK', '2021-04-26 21:31:24', '2021-04-26 21:31:24'),
+(2, 'pengadministrasi umum', 'pu@gmail.com', NULL, '$2y$10$oqYt4z51BtQ8PjWgktfxduz.hJhSV3HYPZzaWlYNns7gQ9OzAQbUS', NULL, 'PU', '2021-04-26 14:31:24', '2021-04-26 14:31:24'),
+(3, 'kasubbag umum', 'kuk@gmail.com', NULL, '$2y$10$oqYt4z51BtQ8PjWgktfxduz.hJhSV3HYPZzaWlYNns7gQ9OzAQbUS', NULL, 'KUK', '2021-04-26 14:31:24', '2021-04-26 14:31:24');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `anggaran`
+--
+ALTER TABLE `anggaran`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `berkas_laporan_spd`
@@ -407,6 +437,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `anggaran`
+--
+ALTER TABLE `anggaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `berkas_laporan_spd`
 --
 ALTER TABLE `berkas_laporan_spd`
@@ -416,13 +452,13 @@ ALTER TABLE `berkas_laporan_spd`
 -- AUTO_INCREMENT for table `hys_rincian_biaya`
 --
 ALTER TABLE `hys_rincian_biaya`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kuitansi`
 --
 ALTER TABLE `kuitansi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -470,19 +506,19 @@ ALTER TABLE `ref_alat_transportasi`
 -- AUTO_INCREMENT for table `ref_kota`
 --
 ALTER TABLE `ref_kota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ref_rincian_biaya`
 --
 ALTER TABLE `ref_rincian_biaya`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_perjalanan_dinas`
 --
 ALTER TABLE `surat_perjalanan_dinas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `surat_tugas`
@@ -494,5 +530,5 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 

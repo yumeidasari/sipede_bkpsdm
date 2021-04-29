@@ -10,6 +10,8 @@ use App\SuratTugas;
 use App\Opd;
 use PDF;
 use App\Biaya;
+use App\AlatTransportasi;
+use App\Kota;
 
 class SPDController extends Controller
 {
@@ -89,6 +91,7 @@ class SPDController extends Controller
 				$spd_baru->spd_surattugas_id = $request->spd_surattugas_id;
 				$spd_baru->spd_anggaran_id = $request->spd_anggaran_id;
 				$spd_baru->spd_ket = $request->spd_ket;
+				$spd_baru->spd_status = 0;
        
 				$spd_baru->save();
 				}
@@ -110,7 +113,8 @@ class SPDController extends Controller
 				$spd_baru->spd_surattugas_id = $request->spd_surattugas_id;
 				$spd_baru->spd_anggaran_id = $request->spd_anggaran_id;
 				$spd_baru->spd_ket = $request->spd_ket;
-       
+				$spd_baru->spd_status = 0;
+				
 				$spd_baru->save();
 		}
 			
@@ -137,7 +141,18 @@ class SPDController extends Controller
      */
     public function edit($id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		$opd = Opd::all();
+		$surattugas = SuratTugas::all();
+        $pegawai = Pegawai::all();
+		$transportasi = AlatTransportasi::all();
+		$kota = Kota::all();
+		$spd = SuratPerjalananDinas::findOrFail($id);
+
+        return view('spd/edit', compact('spd','pegawai','surattugas','opd','kota','transportasi'));
     }
 
     /**
@@ -149,7 +164,30 @@ class SPDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //harus login dulu baru bisa lihat
+        if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		$spd->spd_opd_id = $request->spd_opd_id;
+		$spd->spd_lembar_ke = $request->spd_lembar_ke;
+		$spd->spd_kode = $request->spd_kode;
+		$spd->spd_nomor = $request->spd_nomor;
+		$spd->spd_ppk_id = $request->spd_ppk_id;
+		$spd->spd_pegawai_id = $request->spd_pegawai_id;
+		$spd->spd_maksud = $request->spd_maksud;
+		$spd->spd_transportasi_id = $request->spd_transportasi_id;
+		$spd->spd_tempat_berangkat = $request->spd_tempat_berangkat;
+		$spd->spd_kota_tujuan_id = $request->spd_kota_tujuan_id;
+		$spd->spd_surattugas_id = $request->spd_surattugas_id;
+		$spd->spd_anggaran_id = $request->spd_anggaran_id;
+		$spd->spd_ket = $request->spd_ket;
+		$spd->spd_status = 0;
+       
+		$spd->save();
+		return redirect()->to("spd");
+		
     }
 
     /**
@@ -190,5 +228,29 @@ class SPDController extends Controller
 		$biaya = Biaya::all();
 		
         return view('rincianbiaya/create', compact('spd', 'biaya'));
+	}
+	
+	public function spd_confirm_status($id)
+	{
+		if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		$spd->spd_status = 2;
+		$spd->save();
+		return redirect()->to("spd");
+	}
+	
+	public function spd_tolak_status($id)
+	{
+		if (!\Auth::check()) {
+            abort(401);
+        }
+		
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		$spd->spd_status = 1;
+		$spd->save();
+		return redirect()->to("spd");
 	}
 }

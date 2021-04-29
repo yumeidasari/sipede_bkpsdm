@@ -1,4 +1,14 @@
 <?php $__env->startSection('content'); ?>
+<head>
+	<style>
+		.custom {
+		width: 110px !important;
+		}
+		.custom1 {
+		width: 30px !important;
+		}
+	</style>
+</head>
     <div class="container pt-4">
         <h4><b>DAFTAR SURAT PERJALANAN DINAS</b></h4>
 
@@ -14,6 +24,7 @@
 					<th>Nama Pegawai</th>
 					<th>NIP</th>
 					<th>Nama PPK</th>
+					<th width="100px">Status</th>
 					<th>Action </th>
                 </tr>
             </thead>
@@ -27,6 +38,44 @@
 					<td> <?php echo e($spd->pegawai->nama_pegawai); ?> </td>
 					<td> <?php echo e($spd->pegawai->nip); ?> </td>
 					<td> <?php echo e($spd->pegawai->nama_pegawai); ?> </td>
+					<?php if(auth()->guard()->check()): ?>
+				<?php if(\Gate::allows('PU') ): ?>
+					<?php if($spd->spd_status == 0): ?>
+						<td width="100px">Belum Diperiksa</td>
+					<?php elseif($spd->spd_status == 1): ?>
+						<td width="100px">
+							<a href="<?php echo e(url("/spd/$spd->id/edit")); ?>" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+							
+						Harus Revisi
+						</td>
+					<?php else: ?>
+						<td width="100px">Approved</td>
+					<?php endif; ?>
+				<?php elseif(\Gate::allows('PPK') ): ?>
+					<?php if($spd->spd_status == 0): ?>
+						<td width="100px">Belum Diperiksa</td>
+					<?php elseif($spd->spd_status == 1): ?>
+						<td width="100px">
+							Harus Revisi
+						</td>
+					<?php else: ?>
+						<td width="100px">Approved</td>
+					<?php endif; ?>	
+				<?php elseif(\Gate::allows('KUK')): ?>
+					<?php if($spd->spd_status == 0): ?>
+						<td width="100px">
+							
+								<a href="<?php echo e(url("/spd/$spd->id/spd_confirm_status")); ?>" class="btn btn-success btn-sm custom1" ><i class='nav-icon fas fa-check' style='color: white'></i></a>
+								<a href="<?php echo e(url("/spd/$spd->id/spd_tolak_status")); ?>" class="btn btn-danger btn-sm custom1" ><i class='nav-icon fas fa-times' style='color: white'></i></a>
+							
+						</td>
+					<?php elseif($spd->spd_status == 1): ?>
+						<td>Harus Revisi</td>
+					<?php else: ?>
+						<td>Approved</td>
+					<?php endif; ?>
+				<?php endif; ?>
+				<?php endif; ?>
 					<td>
                         <!-- <a href="<?php echo e(url("/spd/$spd->id/edit")); ?>" class="btn btn-info btn-sm">edit </a> -->
                         <!-- <a href="<?php echo e(url("/spd/$spd->id")); ?>" class="btn btn-info btn-sm">view </a> -->

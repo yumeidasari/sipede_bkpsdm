@@ -17,6 +17,7 @@
 					<th>Tiket</th>
 					<th>Boarding Pass</th>
 					<th>Bill Hotel</th>
+					<th>Laporan SPD</th>
                     <th>Action </th>
                 </tr>
             </thead>
@@ -73,6 +74,15 @@
 					
 					<td> @if(isset($berkas->scan_bill_hotel))
 							<a href="{{asset("/storage/$berkas->scan_bill_hotel")}}" target='_BLANK'> 
+							<img src="{{ asset('/storage/img/Adobe-PDF-Document-icon.png') }}" alt="pdf" >
+							</a>
+						@else
+                                        -
+                        @endif
+					</td>
+					
+					<td> @if(isset($berkas->scan_laporan_spd))
+							<a href="{{asset("/storage/$berkas->scan_laporan_spd")}}" target='_BLANK'> 
 							<img src="{{ asset('/storage/img/Adobe-PDF-Document-icon.png') }}" alt="pdf" >
 							</a>
 						@else

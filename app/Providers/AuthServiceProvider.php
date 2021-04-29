@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        \Gate::define('PPK', function ($user) {
+			return $user->role == "PPK";
+		});
+
+		\Gate::define('PU', function ($user) {
+			return $user->role == "PU";
+		});
+		
+		\Gate::define('KUK', function ($user) {
+			return $user->role == "KUK";
+		});
     }
 }
