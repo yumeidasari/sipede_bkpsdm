@@ -80,6 +80,10 @@ class BerkasController extends Controller
             $path = $request->file('scan_bill_hotel')->store("/berkas/", 'public');
             $berkas_baru->scan_bill_hotel = $path; 
         }
+		if ($request->hasFile('scan_laporan_spd')) {
+            $path = $request->file('scan_laporan_spd')->store("/berkas/", 'public');
+            $berkas_baru->scan_laporan_spd = $path; 
+        }
 		
 		$berkas_baru->save();
 		return redirect()->to("berkas");
@@ -193,6 +197,17 @@ class BerkasController extends Controller
             $path = $request->file('scan_bill_hotel')->store("/berkas/", 'public');
 
             $berkas->scan_bill_hotel = $path;
+        }
+		
+		if ($request->hasFile('scan_laporan_spd')) {
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_laporan_spd);
+
+            // simpan foto baru
+            $path = $request->file('scan_laporan_spd')->store("/berkas/", 'public');
+
+            $berkas->scan_laporan_spd = $path;
         }
 		
 		$berkas->save();

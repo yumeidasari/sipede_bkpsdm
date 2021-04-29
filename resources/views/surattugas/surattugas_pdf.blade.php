@@ -2,7 +2,7 @@
 <html>
 <head>
     
-	<title>Data Nota Dinas</title>
+	<title>Data Surat Tugas</title>
 	<link rel="shortcut icon" type="image/png" href="{{ asset('/storage/img/logo-beltim.png') }}">
 </head>
 

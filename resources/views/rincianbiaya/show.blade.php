@@ -38,7 +38,7 @@
                 <tr>
 					<td> {{$i++}}</td>
                     <td> {{$rb->biaya}}</td>
-                    <td> Rp. {{$rb->jumlah}},- </td>
+                    <td> Rp. {{rupiah($rb->jumlah)}} </td>
 					<td> {{$rb->keterangan}} </td>
 					<!--td> <a href="{{url("/rincianbiaya/$rb->id/delete")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: black'></i></a>
 						<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalSaya">
@@ -90,4 +90,14 @@
     </div>
   </div>
 </div>
+
+<?php
+function rupiah($angka){
+	
+	//$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+	$hasil_rupiah = number_format($angka,2,',','.');
+	return $hasil_rupiah;
+ 
+}
+?>
 @endsection

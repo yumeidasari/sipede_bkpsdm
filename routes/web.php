@@ -3,6 +3,8 @@ use App\Pegawai;
 use App\NotaDinas;
 use App\SuratTugas;
 use App\SuratPerjalananDinas;
+use App\Anggaran;
+use App\Kuitansi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,12 +26,35 @@ Route::group(['middleware' => ['web','auth']], function()
 	Route::get('/', function () {
 		
 		$jml_pegawai = count(Pegawai::All());
-        $jml_nodin = count(NotaDinas::All());
+        //$jml_nodin = count(NotaDinas::All());
         $jml_surattugas = count(SuratTugas::All());
 		$jml_spd = count(SuratPerjalananDinas::All());
+		$jml_anggaran = count(Anggaran::All());
+		$semua_anggaran = Anggaran::All();
 		
-        
-        return view('dashboard', compact('jml_pegawai', 'jml_nodin', 'jml_surattugas', 'jml_spd'));
+		if($jml_anggaran != 0){
+		for($i=0; $i<$jml_anggaran; $i++)
+		{
+			$thn_anggaran = $semua_anggaran[$i]->tahun;
+			if( $thn_anggaran == date('Y') )
+			{
+				$sisa_anggaran = $semua_anggaran[$i]->sisa_anggaran;
+				return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+			}
+			else{
+				if($i == $jml_anggaran-1)
+				{
+					$sisa_anggaran = $semua_anggaran[$i]->jml_anggaran;
+					return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+				}
+			}
+		}
+		}
+		else
+		{
+			$sisa_anggaran = 0;
+			return view('dashboard', compact('jml_pegawai', 'sisa_anggaran', 'jml_surattugas', 'jml_spd'));
+		}
 	//return view('');
 	//Auth::routes();
 	});
@@ -52,6 +77,10 @@ Route::get('/golongan/{id}/delete', 'GolonganController@delete');
 Route::get('/transportasi/{id}/delete', 'AlatTransportasiController@delete');
 Route::get('/biaya/{id}/delete', 'BiayaController@delete');
 Route::get('/kota/{id}/delete', 'KotaController@delete');
+Route::get('/surattugas/{id}/st_confirm_status', 'SuratTugasController@st_confirm_status');
+Route::get('/surattugas/{id}/st_tolak_status', 'SuratTugasController@st_tolak_status');
+Route::get('/spd/{id}/spd_confirm_status', 'SPDController@spd_confirm_status');
+Route::get('/spd/{id}/spd_tolak_status', 'SPDController@spd_tolak_status');
 
 Route::resource('/opd','OpdController');
 Route::resource('/jabatan', 'JabatanController');
@@ -66,6 +95,7 @@ Route::resource('/berkas', 'BerkasController');
 Route::resource('/rincianbiaya', 'RincianBiayaController');
 Route::resource('/kuitansi', 'KuitansiController');
 Route::resource('/kota', 'KotaController');
+Route::resource('/anggaran', 'AnggaranController');
 
 Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

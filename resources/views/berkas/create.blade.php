@@ -71,6 +71,13 @@
                           <input type="file" name="scan_bill_hotel" class="form-control">
                      </div>
                 </div>
+				
+				<div class="col">
+                     <div class="form-group">
+                          <label for=""><b>File Scan Laporan SPD</b></label>
+                          <input type="file" name="scan_laporan_spd" class="form-control">
+                     </div>
+                </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan">
 				<a href="{{url('/berkas')}}" class="btn btn-primary"> Kembali </a>
