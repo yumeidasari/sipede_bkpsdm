@@ -62,7 +62,6 @@ Route::group(['middleware' => ['web','auth']], function()
 
 Route::get('/notadinas/{id}/nodin_pdf', 'NotaDinasController@nodin_pdf');
 Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
-Route::get('/surattugas/{id}/surattugas_pdf', 'SuratTugasController@surattugas_pdf');
 Route::get('/spd/{id}/spd_pdf', 'SPDController@spd_pdf');
 Route::get('/spd/{id}/create', 'SuratTugasController@buat_spd'); //buat spd
 Route::get('/berkas/{id}/create', 'SuratTugasController@upload_berkas');
@@ -96,6 +95,7 @@ Route::resource('/rincianbiaya', 'RincianBiayaController');
 Route::resource('/kuitansi', 'KuitansiController');
 Route::resource('/kota', 'KotaController');
 Route::resource('/anggaran', 'AnggaranController');
+Route::resource('/pengguna', 'PenggunaController');
 
 Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

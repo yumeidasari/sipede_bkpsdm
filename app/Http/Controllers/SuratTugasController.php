@@ -77,10 +77,10 @@ class SuratTugasController extends Controller
 		
 		$st_baru->save();
 		
-		$berkas_baru = new Berkas;
-		$berkas_baru->surattugas_id = $st_baru->id;
+		//$berkas_baru = new Berkas;
+		//$berkas_baru->surattugas_id = $st_baru->id;
 		
-		$berkas_baru->save();
+		//$berkas_baru->save();
     
         return redirect()->to('/surattugas/create')->with('message', 'Berhasil menambahkan data Surat Tugas');
     }
@@ -201,9 +201,11 @@ class SuratTugasController extends Controller
         if (!\Auth::check()) {
             abort(401);
         }
-		$surattugas = SuratTugas::findOrFail($id);
+		//$surattugas = SuratTugas::findOrFail($id);
 		
-        return view('berkas/create', compact('surattugas'));
+		$spd = SuratPerjalananDinas::findOrFail($id);
+		
+        return view('berkas/create', compact('spd'));
 	}
 	
 	public function st_confirm_status($id)

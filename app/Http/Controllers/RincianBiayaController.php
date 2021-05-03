@@ -23,7 +23,9 @@ class RincianBiayaController extends Controller
         if (!\Auth::check()) {
             abort(401);
         }
+		
 		$semua_spd=SuratPerjalananDinas::orderBy('id','DESC')->paginate(10);
+		
         return view('rincianbiaya/index',compact('semua_spd'));
     }
 	

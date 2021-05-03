@@ -29,7 +29,7 @@
 				{{ csrf_field() }}
                
 				<div class="form-group">
-                    <input type="text"  name="surattugas_id" value="{{$berkas->surattugas->id}}" class="form-control" hidden>
+                    <input type="text"  name="spd_id" value="{{$berkas->spd->id}}" class="form-control" hidden>
                 </div>
 
                 <div class="col">
@@ -128,6 +128,21 @@
                           <input type="file" name="scan_laporan_spd" class="form-control">
 							@if(isset($berkas->scan_laporan_spd))
                                 <a href="{{asset("/storage/$berkas->scan_laporan_spd")}}" target='_BLANK'>
+									<img  src="{{asset('/storage/img/Adobe-PDF-Document-icon.png')}}">
+									Unduh
+								</a>
+                            @else
+                                -
+                            @endif
+                     </div>
+                </div>
+				
+				<div class="col">
+                     <div class="form-group">
+                          <label for=""><b>File Scan Bill Rapid Test</b></label>
+                          <input type="file" name="scan_bill_rapidtest" class="form-control">
+							@if(isset($berkas->scan_bill_rapidtest))
+                                <a href="{{asset("/storage/$berkas->scan_bill_rapidtest")}}" target='_BLANK'>
 									<img  src="{{asset('/storage/img/Adobe-PDF-Document-icon.png')}}">
 									Unduh
 								</a>

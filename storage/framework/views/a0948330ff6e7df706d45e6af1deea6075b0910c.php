@@ -55,7 +55,7 @@
 					<?php else: ?>
 						<td width="100px">Approved</td>
 					<?php endif; ?>
-				<?php elseif(\Gate::allows('PPK') ): ?>
+				<?php elseif((\Gate::allows('PPK') )||(\Gate::allows('ADMIN') )): ?>
 					<?php if($st->st_status == 0): ?>
 						<td width="100px">Belum Diperiksa</td>
 					<?php elseif($st->st_status == 1): ?>

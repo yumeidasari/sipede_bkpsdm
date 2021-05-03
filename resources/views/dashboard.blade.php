@@ -23,7 +23,7 @@
         <!-- Small boxes (Stat box) -->
       @auth
         <div class="row">
-		@if(\Gate::allows('PPK'))
+		@if((\Gate::allows('PPK'))||(\Gate::allows('ADMIN')))
 			<div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">

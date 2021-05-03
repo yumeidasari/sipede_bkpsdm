@@ -162,7 +162,7 @@
 			</td>
 			
 			<td width="495px">
-				{{$kuitansi->spd->spd_tempat_berangkat}} ke {{$kuitansi->spd->spd_tempat_tujuan}}
+				{{$kuitansi->spd->spd_tempat_berangkat}} ke {{$kuitansi->spd->kota->nama_kota}}
 			</td>
         </tr>
 		</tr>

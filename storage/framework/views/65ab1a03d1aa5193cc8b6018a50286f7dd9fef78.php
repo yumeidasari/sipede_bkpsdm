@@ -29,7 +29,7 @@
             
           </li>
        <?php if(auth()->guard()->check()): ?>
-		<?php if(\Gate::allows('PPK')): ?>
+		<?php if(\Gate::allows('ADMIN')): ?>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -51,6 +51,13 @@
                 <a href="<?php echo e(url('anggaran')); ?>" class="nav-link">
                   <i class="far fa-circle-o nav-icon"></i>
                   <p>Anggaran</p>
+                </a>
+              </li>
+			  
+			  <li class="nav-item">
+                <a href="<?php echo e(url('pengguna')); ?>" class="nav-link">
+                  <i class="far fa-circle-o nav-icon"></i>
+                  <p>Pengguna Aplikasi</p>
                 </a>
               </li>
               
@@ -144,7 +151,7 @@
             </ul>
           </li>
 		  
-		  <?php if(\Gate::allows('PPK')): ?>
+		  <?php if((\Gate::allows('PPK'))||(\Gate::allows('ADMIN'))): ?>
 		  <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-plane"></i>

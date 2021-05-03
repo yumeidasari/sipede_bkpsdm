@@ -63,10 +63,56 @@
 		
 		<tr>
 			<td width="200px">
-				<font size="4">Kepada</font>
+				<table align="center" width="200px">
+					<tr>
+						<td>
+							<font size="4">Kepada</font>
+							
+						</td>
+						
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+				</table>
 			</td>
 			<td width="50px">
-				<font size="4">:</font>
+				<table align="center" width="50px">
+					<tr>
+						<td>
+							<font size="4">:</font>
+							
+						</td>
+						
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<font size="4"><br></font>
+						</td>
+					</tr>
+				</table>
 			</td>
 			
 			<td width="450px">
@@ -125,13 +171,37 @@
 		
 		<tr>
 			<td width="200px">
-				<font size="4">Untuk</font>
+				<table>
+					<tr>
+						<td>
+							<font size="4">Untuk</font>
+						</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+				</table>
 			</td>
 			<td width="50px">
-				<font size="4">:</font>
+				<table>
+					<tr>
+						<td>
+							<font size="4">:</font>
+						</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+				</table>
 			</td>
 			<td width="450px">
-			<br>
+			
 				<font size="4">{{$surattugas->st_alasan_penugasan}}</font>
 			</td>
 		</tr>
@@ -178,7 +248,7 @@
             <td>
 					<br>
 					<br>
-                  <p><font size="4"><span style="padding-left:50px;">Terhitung tanggal {{Carbon\Carbon::parse($surattugas->st_tgl_awal)->format('d F Y')}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </span>
+                  <p><font size="4"><span style="padding-left:33px;">Terhitung tanggal {{Carbon\Carbon::parse($surattugas->st_tgl_awal)->format('d F Y')}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </span>
 					<br><span style="padding-left:50px;">Ditetapkan di : {{$surattugas->st_tempat_penetapan}}</span>  
 					<br><span style="padding-left:50px;">Pada tanggal</span><span style="padding-left:11px;">: {{Carbon\Carbon::parse($surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
 					

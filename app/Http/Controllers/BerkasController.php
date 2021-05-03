@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SuratTugas;
+use App\SuratPerjalananDinas;
 use App\Berkas;
+
 
 class BerkasController extends Controller
 {
@@ -36,7 +37,7 @@ class BerkasController extends Controller
             abort(401);
         }
 		
-		$surattugas = SuratTugas::all();
+		$spd = SuratPerjalananDinas::all();
 		return view('berkas/create', compact('surattugas'));
     }
 
@@ -54,7 +55,7 @@ class BerkasController extends Controller
         }
 		
 		$berkas_baru = new Berkas;
-		$berkas_baru->surattugas_id = $request->surattugas_id;
+		$berkas_baru->spd_id = $request->spd_id;
 		
 		if ($request->hasFile('scan_nodin')) {
             $path = $request->file('scan_nodin')->store("/berkas/", 'public');
@@ -82,6 +83,10 @@ class BerkasController extends Controller
         }
 		if ($request->hasFile('scan_laporan_spd')) {
             $path = $request->file('scan_laporan_spd')->store("/berkas/", 'public');
+            $berkas_baru->scan_laporan_spd = $path; 
+        }
+		if ($request->hasFile('scan_bill_rapidtest')) {
+            $path = $request->file('scan_bill_rapidtest')->store("/berkas/", 'public');
             $berkas_baru->scan_laporan_spd = $path; 
         }
 		
@@ -114,8 +119,8 @@ class BerkasController extends Controller
         }
 		
 		$berkas = Berkas::findOrFail($id);
-		$surattugas = SuratTugas::all();
-		return view('berkas/edit', compact('berkas','surattugas'));
+		$spd = SuratPerjalananDinas::all();
+		return view('berkas/edit', compact('berkas','spd'));
     }
 
     /**
@@ -208,6 +213,17 @@ class BerkasController extends Controller
             $path = $request->file('scan_laporan_spd')->store("/berkas/", 'public');
 
             $berkas->scan_laporan_spd = $path;
+        }
+		
+		if ($request->hasFile('scan_bill_rapidtest')) {
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_bill_rapidtest);
+
+            // simpan foto baru
+            $path = $request->file('scan_bill_rapidtest')->store("/berkas/", 'public');
+
+            $berkas->scan_bill_rapidtest= $path;
         }
 		
 		$berkas->save();

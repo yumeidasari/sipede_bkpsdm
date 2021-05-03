@@ -46,7 +46,7 @@
         </tr>
 		<tr>
 			<td>
-				<BR>
+				
 				<BR><center><font size="4"><b>SURAT PERJALANAN DINAS (SPD)</b></font></center>
 				<BR>
 			</td>	
@@ -224,7 +224,7 @@
 							<BR><span style="padding-left:27px;">Tanggal {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
 							<BR>
 				</font>
-							<BR><center><b><font size="4">PPK / PA / KPA *) </font></b></center>
+							<BR><center><b><font size="4">Pejabat Pembuat Komitmen (PPK) </font></b></center>
 							<BR>
 							<BR>
 							<BR><center><b><font size="4">{{$spd->ppk->nama_pegawai}}</font></b></center>
@@ -233,7 +233,7 @@
 			</td>
 		</tr>
 	</table>
-	<BR>
+	<BR><BR>
 	<table>
 	</table>
 	<BR><BR><BR>
@@ -259,7 +259,7 @@
 				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
 				
 				<BR><BR>
-				<BR>
+				
 				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
 				
 				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
