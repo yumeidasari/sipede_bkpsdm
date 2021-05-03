@@ -9,8 +9,8 @@ class Berkas extends Model
     //
 	protected $table = 'berkas_laporan_spd';
 	
-	public function surattugas()
+	public function spd()
     {
-        return $this->belongsTo('App\SuratTugas', 'surattugas_id');
+        return $this->belongsTo('App\SuratPerjalananDinas', 'spd_id');
     }
 }

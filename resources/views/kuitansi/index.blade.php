@@ -21,6 +21,9 @@
 				@php $i=1 @endphp
                 @foreach($semua_kuitansi as $k)
                 <tr>
+		@auth
+		@if(Auth::user()->role == 'PPK')
+			@if($k->spd->ppk->id == Auth::user()->pegawai_id)
                     <td> {{$i++}}</td>
                     <td> {{$k->spd->spd_nomor}} </td>
 					<td> {{$k->untuk_pembayaran}} </td>
@@ -31,6 +34,20 @@
 						<a href="{{url("kuitansi/$k->id/kuitansi_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
                     </td>
                 </tr>
+			@endif
+		@else
+					<td> {{$i++}}</td>
+                    <td> {{$k->spd->spd_nomor}} </td>
+					<td> {{$k->untuk_pembayaran}} </td>
+					<td> Rp. {{rupiah($k->jumlah)}} </td>
+					<td>
+                        <a href="{{url("/kuitansi/$k->id/edit")}}" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+                        <!-- a href="{{url("/kuitansi/$k->id")}}" class="btn btn-info btn-sm">view </a -->
+						<a href="{{url("kuitansi/$k->id/kuitansi_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
+                    </td>
+                </tr>
+		@endif
+		@endauth
                 @endforeach
             </tbody>
             <tfoot>

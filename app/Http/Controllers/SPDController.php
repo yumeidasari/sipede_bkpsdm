@@ -12,6 +12,7 @@ use PDF;
 use App\Biaya;
 use App\AlatTransportasi;
 use App\Kota;
+use App\Berkas;
 
 class SPDController extends Controller
 {
@@ -94,6 +95,12 @@ class SPDController extends Controller
 				$spd_baru->spd_status = 0;
        
 				$spd_baru->save();
+				
+				//buat upload berkas
+				$berkas_baru = new Berkas;
+				$berkas_baru->spd_id = $spd_baru->id;
+		
+				$berkas_baru->save();
 				}
 			}
 		}
@@ -116,6 +123,12 @@ class SPDController extends Controller
 				$spd_baru->spd_status = 0;
 				
 				$spd_baru->save();
+				
+				//buat upload berkas
+				$berkas_baru = new Berkas;
+				$berkas_baru->spd_id = $spd_baru->id;
+		
+				$berkas_baru->save();
 		}
 			
 		

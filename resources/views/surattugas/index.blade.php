@@ -58,7 +58,7 @@
 					@else
 						<td width="100px">Approved</td>
 					@endif
-				@elseif(\Gate::allows('PPK') )
+				@elseif((\Gate::allows('PPK') )||(\Gate::allows('ADMIN') ))
 					@if($st->st_status == 0)
 						<td width="100px">Belum Diperiksa</td>
 					@elseif($st->st_status == 1)
