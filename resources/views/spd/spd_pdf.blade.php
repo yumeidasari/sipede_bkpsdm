@@ -5,7 +5,13 @@
 	<title>Surat Perjalanan Dinas</title>
 	<link rel="shortcut icon" type="image/png" href="{{ asset('/storage/img/logo-beltim.png') }}">
 </head>
-
+<style type="text/css">
+		table tr td,
+		table tr th{
+			font-size: 12pt;
+			font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+		}
+</style>
 
     <table  align="center" width="700px"  >
         <tr>
@@ -15,7 +21,7 @@
             <font size="5"><b>BADAN KEPEGAWAIAN DAN PENGEMBANGAN</b></font><BR>
 			<font size="5"><b>SUMBER DAYA MANUSIA</b></font><BR>
             <font size="2">Kompleks Perkantoran Terpadu</font><BR>
-            <font size="2">Jl. Raya Manggar-Gantung, Dsn. Manggarawank Ds.Padang, Kec. Manggar</font><BR>
+            <font size="2">Jl. Raya Manggar-Gantung, Dsn. Manggarawan Ds.Padang, Kec. Manggar</font><BR>
             <font size="2">Kabupaten Belitung Timur, Telp/Fax (0719)9220049</font>
                         
         </td>
@@ -26,11 +32,11 @@
         
     </table>
     
-    <table align="center" width="700px" >
+    <table align="center" width="700px" class="table">
         <tr>
             <td >
                 
-                <font size="4"><span >SKPD/Unit Kerja :</span>
+               <span >SKPD/Unit Kerja :</span>
 				<br><span>Badan Kepegawaian dan Pengembangan<BR>Sumber Daya Manusia</span>
 				<br><span>Pemerintah Kabupaten Belitung Timur</span>
 				
@@ -39,7 +45,7 @@
                 <br><span style="padding-left:380px;">Kode No.</span><span style="padding-left:27px;">: {{$spd->spd_kode}}</span>
 					
 				<br><span style="padding-left:380px;">Nomor</span><span style="padding-left:47px;">: {{$spd->spd_nomor}}</span>
-				</font>
+				
 				<BR>
             </td>
             
@@ -55,186 +61,200 @@
     </table>
 	
 	
-    <table align="center" width="700px" rules="all" >
+    <table align="center" width="700px" rules="all" class="table">
 		<tr>
 			<td width="50px">
-				<font size="4"><center>1.</center></font>
+				<center>1.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Pejabat Pembuat Komitmen/<BR>Pejabat yg berwenang</font>
+				Pejabat Pembuat Komitmen/<BR>Pejabat yg berwenang
+				
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->ppk->nama_pegawai}}</font>
+				{{$spd->ppk->nama_pegawai}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>2.</center></font>
+				<center>2.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Nama/NIP Pegawai yang<BR>melaksanakan perjalanan dinas</font>
+				Nama/NIP Pegawai yang<BR>melaksanakan perjalanan dinas
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->pegawai->nama_pegawai}}</font><BR>
-				<font size="4">{{$spd->pegawai->nip}}</font>
+				{{$spd->pegawai->nama_pegawai}}
+				<BR>
+				{{$spd->pegawai->nip}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>3.</center></font>
+				<center>3.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">a. Pangkat dan Golongan Ruang<BR>b. Jabatan/Instansi</font>
+				a. Pangkat dan Golongan Ruang
+				<BR>
+				b. Jabatan/Instansi
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">a. Pangkat/{{$spd->pegawai->golongan->golongan}}
-								<BR>b. {{$spd->pegawai->jabatan->jabatan}}</font>
+				a. Pangkat/{{$spd->pegawai->golongan->golongan}}
+				<BR>
+				b. {{$spd->pegawai->jabatan->jabatan}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>4.</center></font>
+				<center>4.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Maksud Perjalanan Dinas</font>
+				Maksud Perjalanan Dinas
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->spd_maksud}}</font>
+				{{$spd->spd_maksud}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>5.</center></font>
+				<center>5.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Alat angkutan yang dipergunakan</font>
+				Alat angkutan yang dipergunakan
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->transportasi->alat_transportasi}}</font>
+				{{$spd->transportasi->alat_transportasi}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>6.</center></font>
+				<center>6.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">a. Tempat Berangkat<BR>b. Tempat Tujuan</font>
+				a. Tempat Berangkat
+				<BR>
+				b. Tempat Tujuan
+				
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">a. {{$spd->spd_tempat_berangkat}}
-								<BR>b. {{$spd->kota->nama_kota}}</font>
+				a. {{$spd->spd_tempat_berangkat}}
+				<BR>
+				b. {{$spd->kota->nama_kota}}
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>7.</center></font>
+				<center>7.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">a. Lamanya Perjalanan Dinas
-							<BR>b. Tanggal Berangkat
-							<BR>c. Tanggal harus kembali/tiba di<BR>tempat baru*)</font>
+				a. Lamanya Perjalanan Dinas
+				<BR>
+				b. Tanggal Berangkat
+				<BR>
+				c. Tanggal harus kembali/tiba di tempat baru*)
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">a. {{$spd->surattugas->st_lama_tugas}} hari
-							<BR>b. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}} <BR>
-							<BR>c. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}</font>
+				a. {{$spd->surattugas->st_lama_tugas}} hari
+				<BR>
+				b. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}} 
+				<BR>
+				c. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}
+				<br><BR>
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>8.</center></font>
+				<center>8.</center>
 			</td >
 			<td width="100px">
-				<font size="4">Pengikut </font>
+				Pengikut 
 			</td>
 			<td width="200px">
-				<font size="4">Nama </font>
+				Nama 
 			</td>
 			<td width="200px">
-				<center><font size="4">Tanggal Lahir</font></center>
+				<center>Tanggal Lahir</center>
 			</td>
 			<td width="150px">
-				<center><font size="4">Keterangan</font></center>
+				<center>Keterangan</center>
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center></center></font>
+				<center></center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">1.
-							<BR>2.
-							</font>
+				1.
+				<BR>
+				2.
+							
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4"> 
-							<BR></font>
+				 <BR>
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>9.</center></font>
+				<center>9.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Pembebanan Anggaran
-							<BR>a. Instansi<BR><br>
-							<BR>b. Akun/Kode Rekening</font>
+				Pembebanan Anggaran
+				<BR>
+				a. Instansi
+				<BR><br>
+				
+				b. Akun/Kode Rekening
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4"><BR>a. Badan Kepegawaian dan Pengembangan Sumber Daya Manusia
+				<BR>a. Badan Kepegawaian dan Pengembangan Sumber Daya Manusia
 										Kabupaten Belitung Timur
-								<BR>b. DPA/A.1/5.03.5.04.0.00/5.1.02.04.01.0001</font>
+				<BR>
+				b. DPA/A.1/5.03.5.04.0.00/5.1.02.04.01.0001
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="50px">
-				<font size="4"><center>10.</center></font>
+				<center>10.</center>
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">Keterangan Lain-lain</font>
+				Keterangan Lain-lain
 			</td>
 			<td width="350px" colspan="2">
-				<font size="4">{{$spd->ket}}</font>
+				{{$spd->ket}}
 			</td>
 		</tr>
 				
 	</table>
-	
-	<BR>
+		<BR>
 	<table align="center" width="700px" >
 		<tr>
 			<td width="50px">
 				
 			</td>
 			<td width="300px" colspan="2">
-				<font size="4">*) coret yang tidak perlu</font>
+				*) coret yang tidak perlu
 				<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
 			<td width="350px" colspan="2">
-				<font size="4"><span style="padding-left:27px;">Dikeluarkan di {{$spd->surattugas->st_tempat_penetapan}}</span>
+				<span style="padding-left:27px;">Dikeluarkan di {{$spd->surattugas->st_tempat_penetapan}}</span>
 							<BR><span style="padding-left:27px;">Tanggal {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
 							<BR>
-				</font>
-							<BR><center><b><font size="4">Pejabat Pembuat Komitmen (PPK) </font></b></center>
+				
+							<BR><center><b>Pejabat Pembuat Komitmen (PPK)</b></center>
 							<BR>
 							<BR>
-							<BR><center><b><font size="4">{{$spd->ppk->nama_pegawai}}</font></b></center>
-							<center><b><font size="4">NIP. {{$spd->ppk->nip}}</font></b></center>
+							<BR><center><b>{{$spd->ppk->nama_pegawai}}</b></center>
+							<center><b>NIP. {{$spd->ppk->nip}}</b></center>
 				
 			</td>
 		</tr>
-	</table>
-	<BR><BR>
-	<table>
 	</table>
 	<BR><BR><BR>
 	<table align="center" width="700px" rules="all">
@@ -243,7 +263,7 @@
 				
 			</td>
 			<td width="350px">
-				<font size="4">
+				
 				<span style="padding-left:15px;">I.</span>
 				<span style="padding-left:10px;">Berangkat dari</span>
 				<span style="padding-left:5px;">: {{$spd->spd_tempat_berangkat}}</span>
@@ -256,20 +276,21 @@
 				<span style="padding-left:40px;">Pada Tanggal</span>
 				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}}</span>
 				<BR>
-				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
+				<center>{{$spd->surattugas->penandatangan->jabatan->jabatan}}</center>
 				
 				<BR><BR>
 				
-				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				<center>({{$spd->surattugas->penandatangan->nama_pegawai}})</center>
 				
-				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
+				<center>NIP.{{$spd->surattugas->penandatangan->nip}}</center>
 				
-				</font>
+				
 			</td>
 		</tr>
 		<tr>
-			<td width="350px">
-				<font size="4">
+		
+			<td >
+				
 				<span style="padding-left:15px;">II.</span>
 				<span style="padding-left:4px;">Tiba di</span>
 				<span style="padding-left:63px;">: .............</span>
@@ -285,10 +306,10 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:40px;">Berangkat dari</span>
 				<span style="padding-left:5px;">: .............</span>
 				<BR>
@@ -306,12 +327,12 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
 		</tr>
 		<tr>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:10px;">III.</span>
 				<span style="padding-left:4px;">Tiba di</span>
 				<span style="padding-left:63px;">: .............</span>
@@ -327,10 +348,10 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:40px;">Berangkat dari</span>
 				<span style="padding-left:5px;">: .............</span>
 				<BR>
@@ -348,12 +369,12 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
 		</tr>
 		<tr>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:10px;">IV.</span>
 				<span style="padding-left:4px;">Tiba di</span>
 				<span style="padding-left:63px;">: .............</span>
@@ -369,10 +390,10 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:40px;">Berangkat dari</span>
 				<span style="padding-left:5px;">: .............</span>
 				<BR>
@@ -390,12 +411,12 @@
 				<BR>
 				<span style="padding-left:40px;">NIP ...................................</span>
 				
-				</font>
+				
 			</td>
 		</tr>
 		<tr>
-			<td width="350px">
-				<font size="4">
+			<td >
+				
 				<span style="padding-left:15px;">V.</span>
 				<span style="padding-left:4px;">Tiba di</span>
 				<span style="padding-left:63px;">: {{$spd->spd_tempat_berangkat}}</span>
@@ -407,42 +428,52 @@
 				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}</span>
 				<BR>
 				<BR>
-				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
+				<BR>
+				<center>{{$spd->surattugas->penandatangan->jabatan->jabatan}}</center>
 				<BR>
 				<BR>
-				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				<center>({{$spd->surattugas->penandatangan->nama_pegawai}})</center>
 				
-				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
+				<center>NIP.{{$spd->surattugas->penandatangan->nip}}</center>
 				
-				</font>
+				
 			</td>
-			<td width="350px">
-				<p align="justify"><font size="4">
-					Telah diperiksa dengan keterangan bahwa perjalanan tersebut atas perintahnya
-					dan semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya
-				</font>
-				</p>				
-				<center><font size="4">{{$spd->surattugas->penandatangan->jabatan->jabatan}}</font></center>
+			<td >
+				
+				<span style="padding-left:40px;">Telah diperiksa dengan keterangan</span>
+					 <br>
+				<span style="padding-left:40px;">bahwa perjalanan tersebut atas pe-</span>
+					 <br>
+				<span style="padding-left:40px;">rintahnya dan semata-mata untuk ke-</span>
+					 <br>
+				<span style="padding-left:40px;">pentingan jabatan dalam waktu yang </span>
+					<br>
+				<span style="padding-left:40px;">sesingkat-singkatnya</span>
+				<br>
+				<br>
+				<center>{{$spd->surattugas->penandatangan->jabatan->jabatan}}</center>
 				
 				<BR>
 				<BR>
-				<center><font size="4">({{$spd->surattugas->penandatangan->nama_pegawai}})</font></center>
+				<center>({{$spd->surattugas->penandatangan->nama_pegawai}})</center>
 				
-				<center><font size="4">NIP.{{$spd->surattugas->penandatangan->nip}}</font></center>
+				<center>NIP.{{$spd->surattugas->penandatangan->nip}}</center>
 				
 			</td>
 		</tr>
+		
 		<tr>
 			<td colspan="2">
-				<font size="4">
+				<br>
 				<span style="padding-left:10px;">VI.</span>
 				<span style="padding-left:4px;">Catatan Lain-lain</span>
-				</font>
+				<br><br>
+				
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<font size="4">
+				
 				
 				<p align="justify"><span style="padding-left:4px;">PPK/Pejabat yang berwenang yang
 					menerbitkan SPD, pegawai yang melakukan perjalanan dinas, para pejabat yang mengesahkan
@@ -450,7 +481,7 @@
 					bertanggungjawab berdasarkan peraturan-peraturan keuangan Negara/Daerah apabila Negara/Daerah
 					menderita rugi akibat kesalahan, kelalaian dan kealpaannya.
 				</p></span>
-				</font>
+				
 			</td>
 		</tr>
 		

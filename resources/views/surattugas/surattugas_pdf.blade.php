@@ -5,7 +5,13 @@
 	<title>Data Surat Tugas</title>
 	<link rel="shortcut icon" type="image/png" href="{{ asset('/storage/img/logo-beltim.png') }}">
 </head>
-
+<body>
+	<style type="text/css">
+		table tr td,
+		table tr th{
+			font-size: 9pt;
+		}
+	</style>
 
     <table  align="center" width="700px"  >
         <tr>
@@ -32,7 +38,8 @@
         </tr>
     </table>
     <br>
-    <table align="center" width="700px" >
+    <table align="center" width="700px" class="table">
+	<tbody>
         <tr>
             <td width="200px">
                 <!--p align="justify"><span style="padding-left:40px;">
@@ -52,7 +59,7 @@
 			</td>
             
         </tr>
-		
+	</tbody>	
 		<tr>
 			<td colspan="3">
 			<br>
@@ -276,6 +283,6 @@
 		</tr>
     </table>
 
-
+</body>
     
 </html>
