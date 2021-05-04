@@ -15,7 +15,7 @@
 
     <table  align="center" width="700px"  >
         <tr>
-        <td ><center><img src="{{ asset('/storage/img/logo-beltim.png') }}" width="70" height="90"></center></td>
+        <td ><center><img src="{{ url('/storage/img/logo-beltim.png') }}" width="70" height="90"></center></td>
         <td >
             <center><font size="4"><b>PEMERINTAH KABUPATEN BELITUNG TIMUR<b></font><BR>
             <font size="5"><b>BADAN KEPEGAWAIAN DAN PENGEMBANGAN</b></font><BR>
