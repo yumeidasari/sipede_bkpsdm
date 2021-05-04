@@ -221,6 +221,7 @@ class SPDController extends Controller
             abort(401);
         }
 		$spd = SuratPerjalananDinas::findOrFail($id);
+		//$spd = SuratPerjalananDinas::all();
 		
 		//$pegawai = Pegawai::all();
 		$pdf = PDF::loadview('spd/spd_pdf',['spd'=>$spd])

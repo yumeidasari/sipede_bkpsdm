@@ -117,6 +117,7 @@ class PenggunaController extends Controller
         $pengguna->name = $request->name;
 		$pengguna->email = $request->email;
         $pengguna->role = $request->role;
+		$pengguna->pegawai_id = $request->pegawai_id;
         
         $pengguna->save();
         //return redirect("pengguna/$id/edit")->with('pesan', 'Berhasil mengupdate data User');

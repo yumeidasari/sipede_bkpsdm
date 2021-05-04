@@ -172,7 +172,8 @@ class SuratTugasController extends Controller
         }
 		$surattugas = SuratTugas::findOrFail($id);
 		$pegawai = Pegawai::all();
-		$pdf = PDF::loadview('surattugas/surattugas_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
+		//$pdf = PDF::loadview('surattugas/surattugas_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
+		$pdf = PDF::loadview('spd/contoh_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
                 ->setPaper('legal');
 
                 return $pdf->stream();
