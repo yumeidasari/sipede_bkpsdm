@@ -119,8 +119,12 @@ class PenggunaController extends Controller
         $pengguna->role = $request->role;
 		$pengguna->pegawai_id = $request->pegawai_id;
         
+        if($request->password_baru != null)
+		{
+			$pengguna->password = Hash::make($request['password_baru']);
+		}
+
         $pengguna->save();
-        //return redirect("pengguna/$id/edit")->with('pesan', 'Berhasil mengupdate data User');
         return redirect()->to("/pengguna/$id/edit")->with("message", "Berhasil mengupdate data user");
     }
 
