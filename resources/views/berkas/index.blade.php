@@ -19,7 +19,7 @@
 					<th>Bill Hotel</th>
 					<th>Laporan SPD</th>
 					<th>Bill Rapid Test</th>
-					<th width="100px">Action </th>
+					<th width="120px">Action </th>
                 </tr>
             </thead>
             <tbody>
@@ -185,7 +185,7 @@
                         @endif
 					</td>
 					
-                    <td width="100px">
+                    <td width="120px">
                         <a href="{{url("/berkas/$berkas->id/edit")}}" class="btn btn-info btn-sm">Upload </a>
 						<a href="{{url("/berkas/$berkas->id/destroy")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a>
                         <!-- a href="{{url("/berkas/$berkas->id")}}" class="btn btn-info btn-sm">view </a -->
