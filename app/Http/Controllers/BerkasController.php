@@ -240,6 +240,56 @@ class BerkasController extends Controller
     public function destroy($id)
     {
         //
+		$berkas = Berkas::findOrFail($id);
+		
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_nodin);
+
+            $berkas->scan_nodin = null;
+       
+		
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_surattugas);
+
+            $berkas->scan_surattugas = null;
+       
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_spd);
+
+            $berkas->scan_spd = null;
+       
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_tiket);
+
+            $berkas->scan_tiket = null;
+       
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_boarding_pass);
+
+            $berkas->scan_boarding_pass = null;
+        
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_bill_hotel);
+
+            $berkas->scan_bill_hotel = null;
+       
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_laporan_spd);
+
+            $berkas->scan_laporan_spd = null;
+       
+
+            // hapus foto lama
+            \Storage::delete("public/".$berkas->scan_bill_rapidtest);
+           
+            $berkas->scan_bill_rapidtest= null;
+        
+		$berkas->save();
+		return redirect()->to("berkas");
     }
 	
 	

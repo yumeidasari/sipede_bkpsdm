@@ -80,6 +80,8 @@ Route::get('/surattugas/{id}/st_confirm_status', 'SuratTugasController@st_confir
 Route::get('/surattugas/{id}/st_tolak_status', 'SuratTugasController@st_tolak_status');
 Route::get('/spd/{id}/spd_confirm_status', 'SPDController@spd_confirm_status');
 Route::get('/spd/{id}/spd_tolak_status', 'SPDController@spd_tolak_status');
+Route::get('/rincianbiaya/{id}/destroy', 'RincianBiayaController@destroy');
+Route::get('/berkas/{id}/destroy', 'BerkasController@destroy');
 
 Route::resource('/opd','OpdController');
 Route::resource('/jabatan', 'JabatanController');

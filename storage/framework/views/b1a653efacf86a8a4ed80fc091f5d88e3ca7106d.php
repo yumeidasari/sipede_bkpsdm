@@ -1,4 +1,14 @@
 <?php $__env->startSection('content'); ?>
+<head>
+	<style>
+		.custom {
+		width: 110px !important;
+		}
+		.custom1 {
+		width: 30px !important;
+		}
+	</style>
+</head>
     <div class="container pt-4">
         <h4><b>DAFTAR PEGAWAI</b></h4>
 		<hr>
@@ -14,7 +24,7 @@
 					<th>NIP</th>
 					<th>Jabatan</th>
 					<th>Pangkat/Golongan</th>
-                    <th>Action </th>
+                    <th width="100px">Action </th>
                 </tr>
             </thead>
             <tbody>
@@ -26,9 +36,9 @@
 					<td> <?php echo e($pegawai->nip); ?> </td>
 					<td> <?php echo e($pegawai->jabatan->jabatan); ?> </td>
 					<td> <?php echo e($pegawai->golongan->pangkat); ?>/<?php echo e($pegawai->golongan->golongan); ?> </td>
-                    <td>
-                        <a href="<?php echo e(url("/pegawai/$pegawai->id/edit")); ?>" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
-						<a href="<?php echo e(url("/pegawai/$pegawai->id")); ?>" class="btn btn-primary btn-sm" title='View'><i class='fa fa-file' style='color: white'></i></a>
+                    <td width="100px">
+                        <a href="<?php echo e(url("/pegawai/$pegawai->id/edit")); ?>" class="btn btn-info btn-sm custom1"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+						<a href="<?php echo e(url("/pegawai/$pegawai->id")); ?>" class="btn btn-primary btn-sm custom1" title='View'><i class='fa fa-file' style='color: white'></i></a>
                         <!-- a href="<?php echo e(url("/pegawai/$pegawai->id/delete")); ?>" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a -->
                         <!-- a href="<?php echo e(url("/pegawai/$pegawai->id")); ?>" class="btn btn-info btn-sm">view </a-->
 						<!-- button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalView">

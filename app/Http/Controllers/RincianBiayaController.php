@@ -152,6 +152,7 @@ class RincianBiayaController extends Controller
 		 $rincianbiaya->delete();
 		 
 		 //show($rincianbiaya->spd->id);
+		 return redirect()->to('/rincianbiaya');
     }
 	
 	public function rincianbiaya_pdf($id)
