@@ -10,11 +10,13 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+				
                     <th>No. </th>
-                    <th>Nomor SPD</th>
-					<th>Tujuan Pembayaran</th>
-					<th>Jumlah</th>
-					<th>Action </th>
+                    <th><center>Nomor SPD</center></th>
+					<th><center>Tujuan Pembayaran</center></th>
+					<th width="180px"><center>Jumlah</center></th>
+					<th width="150px"><center>Action</center></th>
+				
                 </tr>
             </thead>
             <tbody>
@@ -26,12 +28,12 @@
 			@if($k->spd->ppk->id == Auth::user()->pegawai_id)
                     <td> {{$i++}}</td>
                     <td> {{$k->spd->spd_nomor}} </td>
-					<td> {{$k->untuk_pembayaran}} </td>
-					<td> Rp. {{rupiah($k->jumlah)}} </td>
-					<td>
-                        <a href="{{url("/kuitansi/$k->id/edit")}}" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a>
+					<td> {{$k->spd->surattugas->st_alasan_penugasan}} </td>
+					<td width="180px"> Rp. {{rupiah($k->jumlah)}} </td>
+					<td width="150px">
+                        <!-- a href="{{url("/kuitansi/$k->id/edit")}}" class="btn btn-info btn-sm"><i class='nav-icon fas fa-edit' style='color: white'></i></a -->
                         <!-- a href="{{url("/kuitansi/$k->id")}}" class="btn btn-info btn-sm">view </a -->
-						<a href="{{url("kuitansi/$k->id/kuitansi_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a>
+						<center><a href="{{url("kuitansi/$k->id/kuitansi_pdf") }}" class="btn btn-danger btn-sm" target='_BLANK'> Export to PDF </a></center>
                     </td>
                 </tr>
 			@endif
