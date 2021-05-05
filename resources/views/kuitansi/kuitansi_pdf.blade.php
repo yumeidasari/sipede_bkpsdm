@@ -120,7 +120,7 @@
 			</td>
 			
 			<td width="495px">
-			{{$kuitansi->untuk_pembayaran}}
+			{{$kuitansi->spd->surattugas->st_alasan_penugasan}}
 			</td>
         </tr>
 		</tr>

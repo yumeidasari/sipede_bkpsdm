@@ -15,7 +15,7 @@
 
     <table  align="center" width="700px"  >
         <tr>
-        <td ><center><img src="{{ asset('/storage/img/logo-beltim.png') }}" width="70" height="90"></center></td>
+        <td ><center><img src="{{ url('/storage/img/logo-beltim.png') }}" width="70" height="90"></center></td>
         <td >
             <center><font size="4"><b>PEMERINTAH KABUPATEN BELITUNG TIMUR<b></font><BR>
             <font size="5"><b>BADAN KEPEGAWAIAN DAN PENGEMBANGAN</b></font><BR>
@@ -99,7 +99,7 @@
 				b. Jabatan/Instansi
 			</td>
 			<td width="350px" colspan="2">
-				a. Pangkat/{{$spd->pegawai->golongan->golongan}}
+				a. {{$spd->pegawai->golongan->pangkat}}/{{$spd->pegawai->golongan->golongan}}
 				<BR>
 				b. {{$spd->pegawai->jabatan->jabatan}}
 			</td>
@@ -216,7 +216,7 @@
 				<BR>a. Badan Kepegawaian dan Pengembangan Sumber Daya Manusia
 										Kabupaten Belitung Timur
 				<BR>
-				b. DPA/A.1/5.03.5.04.0.00/5.1.02.04.01.0001
+				b. {{$spd->spd_anggaran_id}}
 			</td>
 		</tr>
 		

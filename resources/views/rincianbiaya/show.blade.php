@@ -16,6 +16,9 @@
 					<label for="">Tanggal <span style="padding-left:107px;">:</span> 
 					<span style="padding-left:10px;">{{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
 					</label>
+					<BR>
+					<label for="">Kota Tujuan <span style="padding-left:79px;">:</span>
+					<span style="padding-left:10px;">{{$spd->kota->nama_kota}}</span></label>
             </div>
 			
 		<a href="{{url("/rincianbiaya/$spd->id/create")}}" class="btn btn-info btn-sm custom" > + Rincian Biaya </a>
@@ -28,7 +31,7 @@
                     <th>Perincian Biaya</th>
 					<th>Jumlah</th>
 					<th>Keterangan</th>
-					<!--th></th-->
+					<th>Action</th>
                     
                 </tr>
             </thead>
@@ -40,11 +43,11 @@
                     <td> {{$rb->biaya}}</td>
                     <td> Rp. {{rupiah($rb->jumlah)}} </td>
 					<td> {{$rb->keterangan}} </td>
-					<!--td> <a href="{{url("/rincianbiaya/$rb->id/delete")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: black'></i></a>
-						<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalSaya">
+					<td> <a href="{{url("/rincianbiaya/$rb->id/destroy")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a>
+						<!--button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalSaya">
 							<i class='fa fa-trash' style='color: black'></i>
-						</button>
-					</td-->
+						</button-->
+					</td>
                     
                 </tr>
                 @endforeach

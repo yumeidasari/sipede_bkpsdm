@@ -187,6 +187,7 @@
 					
                     <td>
                         <a href="{{url("/berkas/$berkas->id/edit")}}" class="btn btn-info btn-sm">Upload </a>
+						<a href="{{url("/berkas/$berkas->id/destroy")}}" class="btn btn-danger btn-sm" title='Delete'><i class='fa fa-trash' style='color: white'></i></a>
                         <!-- a href="{{url("/berkas/$berkas->id")}}" class="btn btn-info btn-sm">view </a -->
                     </td>
 					
