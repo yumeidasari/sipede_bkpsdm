@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\SuratTugas;
 use App\Pegawai;
 use App\Opd;
-use Carbon\Carbon;
+//use Carbon\Carbon;
 use App\Berkas;
 use App\AlatTransportasi;
 use App\Kota;
@@ -172,11 +173,14 @@ class SuratTugasController extends Controller
         }
 		$surattugas = SuratTugas::findOrFail($id);
 		$pegawai = Pegawai::all();
+				
+		$tgl_awal = \Carbon\Carbon::parse($surattugas->st_tgl_awal)->translatedFormat('d F Y');
 		//$pdf = PDF::loadview('surattugas/surattugas_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
 		$pdf = PDF::loadview('spd/contoh_pdf',['surattugas'=>$surattugas, 'pegawai'=>$pegawai])
                 ->setPaper('legal');
 
                 return $pdf->stream();
+				//return response()->json(['data' => $tgl_awal]);
 		
     	
     }

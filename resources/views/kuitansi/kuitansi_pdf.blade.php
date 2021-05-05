@@ -148,7 +148,7 @@
 			</td>
 			
 			<td width="495px">
-			{{Carbon\Carbon::parse($kuitansi->spd->surattugas->st_tgl_penetapan)->format('d F Y')}}
+			{{Carbon\Carbon::parse($kuitansi->spd->surattugas->st_tgl_penetapan)->translatedformat('d F Y')}}
 			</td>
         </tr>
 		</tr>
