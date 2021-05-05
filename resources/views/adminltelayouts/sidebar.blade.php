@@ -29,7 +29,7 @@
             
           </li>
        @auth
-		@if(\Gate::allows('ADMIN'))
+		
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -47,23 +47,26 @@
                 </a>
               </li>
 			  
-			  <li class="nav-item">
-                <a href="{{ url('anggaran') }}" class="nav-link">
-                  <i class="far fa-circle-o nav-icon"></i>
-                  <p>Anggaran</p>
-                </a>
-              </li>
-			  
+			  @if(\Gate::allows('ADMIN'))
 			  <li class="nav-item">
                 <a href="{{ url('pengguna') }}" class="nav-link">
                   <i class="far fa-circle-o nav-icon"></i>
                   <p>Pengguna Aplikasi</p>
                 </a>
               </li>
-              
+              @endif
            
             </ul>
           </li>
+		  
+		  @if((\Gate::allows('PPK'))||(\Gate::allows('ADMIN')))
+			  <li class="nav-item">
+                <a href="{{ url('anggaran') }}" class="nav-link">
+                  <i class="nav-icon fas fa-clipboard"></i>
+                  <p>Data Anggaran</p>
+                </a>
+              </li>
+			  @endif
 		  
 		   <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -118,7 +121,7 @@
 			  
             </ul>
           </li>
-			@endif
+			
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
