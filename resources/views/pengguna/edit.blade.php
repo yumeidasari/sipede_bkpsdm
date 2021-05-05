@@ -26,6 +26,11 @@
                             <label for="">Email</label>
                             <input type="text" name="email" value="{{$pengguna->email}}" class="form-control">
                         </div>
+												
+						<div class="form-group">
+                            <label for="">Password Baru</label>
+                            <input type="password" name="password_baru" class="form-control">
+                        </div>
 
                         <div class="form-group">
                             <label>Role</label>
