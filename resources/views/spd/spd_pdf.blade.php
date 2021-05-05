@@ -160,9 +160,9 @@
 			<td width="350px" colspan="2">
 				a. {{$spd->surattugas->st_lama_tugas}} hari
 				<BR>
-				b. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}} 
+				b. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->translatedformat('d F Y')}} 
 				<BR>
-				c. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}
+				c. {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->translatedformat('d F Y')}}
 				<br><BR>
 			</td>
 		</tr>
@@ -244,7 +244,7 @@
 				<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
 			<td width="350px" colspan="2">
 				<span style="padding-left:27px;">Dikeluarkan di {{$spd->surattugas->st_tempat_penetapan}}</span>
-							<BR><span style="padding-left:27px;">Tanggal {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
+							<BR><span style="padding-left:27px;">Tanggal {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->translatedformat('d F Y')}}</span>
 							<BR>
 				
 							<BR><center><b>Pejabat Pembuat Komitmen (PPK)</b></center>
@@ -274,7 +274,7 @@
 				<span style="padding-left:95px;">: {{$spd->kota->nama_kota}}</span>
 				<BR>
 				<span style="padding-left:40px;">Pada Tanggal</span>
-				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->format('d F Y')}}</span>
+				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_awal)->translatedformat('d F Y')}}</span>
 				<BR>
 				<center>{{$spd->surattugas->penandatangan->jabatan->jabatan}}</center>
 				
@@ -425,7 +425,7 @@
 				<BR>
 				<BR>
 				<span style="padding-left:40px;">Pada Tanggal</span>
-				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->format('d F Y')}}</span>
+				<span style="padding-left:15px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_akhir)->translatedformat('d F Y')}}</span>
 				<BR>
 				<BR>
 				<BR>

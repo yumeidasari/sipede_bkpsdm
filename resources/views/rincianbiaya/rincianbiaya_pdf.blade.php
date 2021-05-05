@@ -21,7 +21,7 @@
 				<br>Lampiran SPD Nomor
 				<span style="padding-left:5px;">: {{$spd->spd_nomor}}</span>
 				<br>Tanggal
-				<span style="padding-left:98px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
+				<span style="padding-left:98px;">: {{Carbon\Carbon::parse($spd->surattugas->st_tgl_penetapan)->translatedformat('d F Y')}}</span>
 			</td>
 		</tr>
     </table>

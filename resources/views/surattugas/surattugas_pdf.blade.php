@@ -255,9 +255,9 @@
             <td>
 					<br>
 					<br>
-                  <p><font size="4"><span style="padding-left:33px;">Terhitung tanggal {{Carbon\Carbon::parse($surattugas->st_tgl_awal)->format('d F Y')}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </span>
+                  <p><font size="4"><span style="padding-left:33px;">Terhitung tanggal {{$tgl_awal}} s.d {{Carbon\Carbon::parse($surattugas->st_tgl_akhir)->format('d F Y')}} </span>
 					<br><span style="padding-left:50px;">Ditetapkan di : {{$surattugas->st_tempat_penetapan}}</span>  
-					<br><span style="padding-left:50px;">Pada tanggal</span><span style="padding-left:11px;">: {{Carbon\Carbon::parse($surattugas->st_tgl_penetapan)->format('d F Y')}}</span>
+					<br><span style="padding-left:50px;">Pada tanggal</span><span style="padding-left:11px;">: {{Carbon\Carbon::parse($surattugas->st_tgl_penetapan)->translatedformat('d F Y')}}</span>
 					
 					<br>
 					<br><span><center>{{$surattugas->penandatangan->jabatan->jabatan}},</center></span>
